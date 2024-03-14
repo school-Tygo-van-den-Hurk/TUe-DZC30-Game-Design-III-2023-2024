@@ -1,92 +1,101 @@
-"better-comments.tags": [
-    {
-        "tag": "!",
-        "color": "#FF2D00",
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "transparent",
-        "bold": false,
-        "italic": false
-    },
-    {
-        "tag": "?",
-        "color": "#C2C20A",
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "transparent",
-        "bold": false,
-        "italic": false
-    },
-    {
-        "tag": "//",
-        "color": "#474747",
-        "strikethrough": true,
-        "underline": false,
-        "backgroundColor": "transparent",
-        "bold": false,
-        "italic": false
-    },
-    {
-        "tag": "todo",
-        "color": "#FF8C00",
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "transparent",
-        "bold": false,
-        "italic": false
-    },
-    {
-        "tag": "~",
-        "color": "#79c3be",
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "transparent",
-        "bold": true,
-        "italic": false
-    },
-    {
-        "tag": "|",
-        "color": "#A155B5",
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "transparent",
-        "bold": true,
-        "italic": false
-    },
-    {
-        "tag": " #",
-        "color": "#DDB1BC",
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "transparent",
-        "bold": false,
-        "italic": false
-    },
-    {
-        "tag": "&",
-        "color": "#FFDBAC",
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "transparent",
-        "bold": false,
-        "italic": false
-    },
-    {
-        "tag": "`",
-        "color": "#F88379",
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "transparent",
-        "bold": false,
-        "italic": false
-    },
-    {
-        "tag": "# TODO",
-        "color": "#FFFFFF",
-        "strikethrough": false,
-        "underline": false,
-        "backgroundColor": "transparent",
-        "bold": true,
-        "italic": false
-    }
-]
+{
+    "better-comments.tags": [
+        {
+            "tag": "!",
+            "color": "#FF2D00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "?",
+            "color": "#C2C20A",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "//",
+            "color": "#474747",
+            "strikethrough": true,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "todo",
+            "color": "#FF8C00",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "~",
+            "color": "#79c3be",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": true,
+            "italic": false
+        },
+        {
+            "tag": "|",
+            "color": "#A155B5",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": true,
+            "italic": false
+        },
+        {
+            "tag": " #",
+            "color": "#DDB1BC",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "&",
+            "color": "#FFDBAC",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "`",
+            "color": "#F88379",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": false,
+            "italic": false
+        },
+        {
+            "tag": "# TODO",
+            "color": "#FFFFFF",
+            "strikethrough": false,
+            "underline": false,
+            "backgroundColor": "transparent",
+            "bold": true,
+            "italic": false
+        }
+    ],
+    "liveSassCompile.settings.formats": [
+        {
+            "format": "compressed",
+            "extensionName": ".min.css", 
+            "savePath": "/styles/css"
+        }
+    ],
+}

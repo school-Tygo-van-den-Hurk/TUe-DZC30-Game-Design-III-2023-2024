@@ -1,6 +1,6 @@
-  {
+{
     "recommendations": [
-      "ritwickdey.live-sass",
-      "aaron-bond.better-comments"
+        "ritwickdey.live-sass",
+        "aaron-bond.better-comments"
     ]
-  }
+}
