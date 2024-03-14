@@ -98,4 +98,8 @@
             "savePath": "/server/styles/css"
         }
     ],
+    "cSpell.words": [
+        "crossorigin",
+        "middot"
+    ],
 }
