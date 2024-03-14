@@ -1,3 +1,8 @@
+# to exclude the CSS files from being included in the versioning as these are compiled anyways.
+*.css 
+
+#~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ADDED BY GITHUB AS TEMPLATE FOR NEXT.JS APP ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~#
+
 # Logs
 logs
 *.log
