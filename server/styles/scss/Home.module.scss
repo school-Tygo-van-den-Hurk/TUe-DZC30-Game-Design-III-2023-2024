@@ -1,3 +1,13 @@
-.container {
-    background-color: red;
+main#main-content {
+
+    & > section#Pirates-of-the-Caribbean-At-Campus-End {
+
+        & > img#site-icon {
+            max-width: 80%;
+            padding: 10%;
+        }
+    }
+}
+footer#footer {
+    padding: 2em;
 }
