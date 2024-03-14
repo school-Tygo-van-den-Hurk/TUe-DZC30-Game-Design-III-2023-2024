@@ -22,7 +22,7 @@ export default function Home() {
             </Head>
             <main id={styles["main-content"]}>
                 <section id="Pirates-of-the-Caribbean-At-Campus-End">
-                    <img id={"site-icon"} src="/icon.responsive.svg" />
+                    {/* <img id="site-icon" src="/icon.responsive.svg" /> */}
                     <h1 id={styles["main-title"]}> 
                         Pirates of the Caribbean: At Campus' End
                     </h1>
@@ -30,18 +30,20 @@ export default function Home() {
                         This is some text bla bla bla bla
                     </p>
                 </section>
-                <section id={"introduction"}>
+                <section id="introduction">
                     <h2>introduction</h2>
                     <p>
                         In this part, we'll desribe how to play the game
                     </p>
                 </section>
             </main>
-            <footer id={"footer"}>
-                Copyright &copy; 
-                {(new Date().getFullYear() === 2024) ? (`2024`) : (`2024 - ${new Date().getFullYear()}`)}&nbsp;
-                &middot; Group 4 for Game Design
-                &middot; All rights reserved
+            <footer id="footer">
+                <p id="copyright-notice">
+                    Copyright &copy; 
+                    {(new Date().getFullYear() === 2024) ? (`2024`) : (`2024 - ${new Date().getFullYear()}`)}&nbsp;
+                    &middot; Group 4 for Game Design
+                    &middot; All rights reserved
+                </p>
             </footer>
         </>
     );

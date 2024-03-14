@@ -1,15 +1,36 @@
+style script {
+    display: none;
+}
+
 * {
-    box-sizing: border-box;
-    padding: 0;
     margin: 0;
+    padding: 0;
 }
 
-a {
-    color: inherit;
-    text-decoration: none;
-}
+html {
+    & > body {
+        background-color: #808080;
+        width: 100vw;
+        height: 100vh;
 
-img {
-    max-width: 100%;
-    height: auto;
+        & > * {
+            background-color: #fff;
+            max-width: 80em;
+            width: 100%;
+            margin: 0 auto;
+            display: block;
+        }
+
+        main, footer, header {
+
+            display: block;
+
+            & > * {
+                margin: 0 auto;
+                width: fit-content;
+                max-width: 80%;
+                text-align: justify;
+            }
+        }
+    }
 }
