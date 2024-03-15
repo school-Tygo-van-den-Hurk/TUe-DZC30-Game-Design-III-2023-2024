@@ -1,5 +1,7 @@
 main#main-content {
 
+    padding-top: 5em;
+
     & > section#Pirates-of-the-Caribbean-At-Campus-End {
 
         & > img#site-icon {
@@ -9,5 +11,10 @@ main#main-content {
     }
 }
 footer#footer {
-    padding: 2em;
+    
+    padding-top: 5em;
+
+    p#copyright-notice {
+        padding: 2em;
+    }
 }

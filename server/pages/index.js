@@ -1,11 +1,12 @@
 import Head from 'next/head';
 import styles from '../styles/css/Home.module.css';
+import getFooter from './footer';
 
 export default function Home() {
     return (
         <>
             <Head>
-                <title>Pirates of the Caribbean: At Campus' End</title>
+                <title>Home | Pirates of the Caribbean: At Campus' End</title>
                 <meta charset="UTF-8" />
                 <meta name="darkreader-lock" />
                 <meta name="author" content="Tygo van den Hurk" /> 
@@ -29,6 +30,18 @@ export default function Home() {
                     <p>
                         This is some text bla bla bla bla
                     </p>
+                    <br />
+                    <p>
+                        You can go to:
+                    </p>
+                    <ol>
+                        <li>
+                            <a href="/map">the map</a>
+                        </li>
+                        <li>
+                            <a href="/puzzle">the puzzle</a>
+                        </li>
+                    </ol>
                 </section>
                 <section id="introduction">
                     <h2>introduction</h2>
@@ -37,14 +50,7 @@ export default function Home() {
                     </p>
                 </section>
             </main>
-            <footer id="footer">
-                <p id="copyright-notice">
-                    Copyright &copy; 
-                    {(new Date().getFullYear() === 2024) ? (`2024`) : (`2024 - ${new Date().getFullYear()}`)}&nbsp;
-                    &middot; Group 4 for Game Design
-                    &middot; All rights reserved
-                </p>
-            </footer>
+            {getFooter()}
         </>
     );
 }
