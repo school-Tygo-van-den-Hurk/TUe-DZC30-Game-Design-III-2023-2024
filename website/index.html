@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Simple Map</title>
+    <meta name="viewport" content="initial-scale=1.0">
+    <meta charset="utf-8">
+    <link rel="stylesheet" type="text/css" href="style.css" />
+</head>
+
+<body>
+    <!-- Lore popup-->
+    <div class="dialogue-container">
+        <div class="character">
+            <img src="images/Pirate_Captain.jpeg" alt="Character">
+        </div>
+        <div class="text-container">
+            <p id="dialogue-text"></p>
+            <div id="continue-text">Click anywhere to continue</div>
+        </div>
+    </div>
+    <script src="scripts/lore.js"></script>
+
+    <!-- Map -->
+    <div id="legend">
+        <h2>Legend</h2>
+        <p id="gold">
+            this is where the treasure is!!
+        </p>
+    </div>
+    <div id="map"></div>
+    <script src="scripts/map.js"></script>
+
+    <!-- Google maps API call -->
+    <script async defer
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCJET1X_nGd5nsC1RLv1YTUWFg9HPkAjxQ&callback=initMap&loading=async"></script>
+</body>
+
+</html>
