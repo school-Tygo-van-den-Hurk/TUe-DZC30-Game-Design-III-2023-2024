@@ -1,10 +1,19 @@
-style script {
-    display: none;
+@font-face {
+    font-family: "pirate font";
+    src: url("../../public/font.otf") format("opentype");
+    font-weight: normal;
+    font-style: normal;
+}
+
+style, script {
+    display: none !important;
 }
 
 * {
     margin: 0;
     padding: 0;
+
+    font-family: "pirate font", monospace;
 }
 
 html {
@@ -21,15 +30,29 @@ html {
             display: block;
         }
 
+        & > *:first-child, 
+        & > *:first-child > *:first-child,
+        & > *:first-child > *:first-child > *:first-child,
+        & > *:first-child > *:first-child > *:first-child > *:first-child,
+        & > *:first-child > *:first-child > *:first-child > *:first-child > *:first-child,
+        & > *:first-child > *:first-child > *:first-child > *:first-child > *:first-child > *:first-child {
+            margin-top: 0;
+        }
+
         main, footer, header {
 
-            display: block;
+            display: block; 
+            width: 100%;
 
             & > * {
                 margin: 0 auto;
                 width: fit-content;
                 max-width: 80%;
                 text-align: justify;
+            }
+
+            section {
+                margin-top: 3em;
             }
         }
     }
