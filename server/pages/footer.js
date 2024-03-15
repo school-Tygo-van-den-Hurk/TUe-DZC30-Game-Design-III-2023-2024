@@ -1,11 +1,14 @@
 export default function getFooter() {
-    const link = (`https://github.com/Tygo-van-den-Hurk-school/TUe-DZC20-Game-Design-III-2023-2024`);
+    const linkToRepository = (`https://github.com/Tygo-van-den-Hurk-school/TUe-DZC20-Game-Design-III-2023-2024`);
     return (
         <footer>
             <p>
-                This website was developed for <code>Game Design III</code> for the <code>TU/e</code>. 
-                To see the source code, go to <code><a href={`"` + link + `"`}>the GitHub</a></code>.
+                This website was developed for <code>Game Design III</code> for the <code>{getTUeLink()}</code>. 
+                To see the source code, go to <code>
+                    <a href={linkToRepository} style={{color:"#000"}}>the GitHub</a>
+                </code>.
             </p>
+            <br />
             {getCopyright()}
         </footer>
     );
@@ -20,6 +23,7 @@ export default function getFooter() {
  */
 export function getCopyright() {
     
+    const tue = (getTUeLink());
     const launchYear = (2024);
     const currentYear = (new Date().getFullYear());
     const result = ( 
@@ -30,7 +34,19 @@ export function getCopyright() {
 
     return (
         <p>
-            Copyright &copy; {result} &middot; Group 4 for Game Design III at TU/e &middot; All rights reserved.
+            Copyright &copy; {result} &middot; Group 4 for Game Design III at {tue} &middot; All rights reserved.
         </p>
+    );
+}
+
+/**
+ * 
+ * @returns a link to the TU/e Site.
+ */
+function getTUeLink() {
+    return (
+        <a href="https://tue.nl" style={{color:"#FF0000"}}>
+            TU/e
+        </a>
     );
 }

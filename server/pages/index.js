@@ -23,25 +23,40 @@ export default function Home() {
                         Pirates of the Caribbean: At Campus' End
                     </h1>
                     <p>
-                        This is some text bla bla bla bla
+                        In this game you'll play the pirate. You'll have to solve puzzles to get hints on where the 
+                        treasure is, then you'll be able to find and collect it. You can learn more about how this
+                        game work at <a href="#introduction">the introduction</a>. For now you can go 
+                        to <a href="/map">the map</a>, or take a look at <a href="/puzzle">the puzzle</a> to get 
+                        started. If you have any questions, concerns, or problems, please feel free 
+                        to <a href="https://redirects.tygo.van.den.hurk.dev/contact">get in touch</a> with me at all 
+                        times.
                     </p>
-                    <br />
+                </section>
+                <section>
+                    <h3>
+                        The Map
+                    </h3>
                     <p>
-                        You can go to:
+                        This is the map in real time:
                     </p>
-                    <ol>
-                        <li>
-                            <a href="/map">the map</a>
-                        </li>
-                        <li>
-                            <a href="/puzzle">the puzzle</a>
-                        </li>
-                    </ol>
+                    <a href="/map" target="_blank">
+                        <iframe href="/map" frameborder="0" />
+                    </a>
+                    <br />
+                    <h3>
+                        The Puzzle
+                    </h3>
+                    <p>
+                        This is the puzzle in real time:
+                    </p>
+                    <a href="/puzzle" target="_blank">
+                        <iframe href="/puzzle" frameborder="0" />
+                    </a>
                 </section>
                 <section id="introduction">
                     <h2>introduction</h2>
                     <p>
-                        In this part, we'll desribe how to play the game
+                        In this part, we'll describe how to play the game, and tell you more about it.
                     </p>
                 </section>
             </main>

@@ -5,29 +5,77 @@
     font-style: normal;
 }
 
-style, script {
-    display: none !important;
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ COLOR VARIABLES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+:root {
+        --html-background: #808080;
+        --body-background:#808080;
 }
+@media (prefers-color-scheme: light) {
+    :root {
+        --html-background: #FFFFFF;
+        --body-background: #FFFFFF;
+    }
+}
+
+@media (prefers-color-scheme: dark) {
+    :root {
+        --html-background: #000000;
+        --body-background: #2F4F4F80;
+    }
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ CUSTOM CLASSES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+@media (prefers-color-scheme: light) { .map-background { box-shadow: 10px 10px 5px lightblue; } }
+//// @media (prefers-color-scheme: dark) { .map-background { box-shadow: 10px 10px 5px #080838; } }
+.map-background {
+
+    background: linear-gradient(45deg, #FFF5C3, #FFE87C, #FFDE7D, #FFD700)  !important;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    //// background-image: repeating-linear-gradient(
+    ////         90deg, 
+    ////         rgba(255, 255, 255, 0.1), 
+    ////         rgba(255, 255, 255, 0.1) 1px, 
+    ////         transparent 1px, 
+    ////         transparent 100%
+    //// ) !important;
+}
+
+.hidden { display: none !important; }
+.horizontally-centered { margin-left: auto; margin-right: auto; }
+.vertically-centered { display: flex; justify-content: center; align-items: center; flex-direction: column; }
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ HTML ELEMENTS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+style, script, next-route-announcer, #__next-build-watcher { @extend .hidden; }
 
 * {
     margin: 0;
     padding: 0;
-
+    color: #654321;
+    border-color: #654321;
     font-family: "pirate font", monospace;
+    user-select: none;
 }
 
 html {
+    background-color: var(--html-background);
     & > body {
-        background-color: #808080;
+        background-color: var(--body-background);
         width: 100vw;
         height: 100vh;
 
         & > * {
-            background-color: #fff;
+            @extend .map-background;
+
+            //// background-color: #fff;
             max-width: 80em;
             width: 100%;
             margin: 0 auto;
             display: block;
+            min-height: 100vh;
         }
 
         & > *:first-child, 
@@ -39,21 +87,41 @@ html {
             margin-top: 0;
         }
 
+
+        $page-container-width: 100%;
+
         main, footer, header {
 
             display: block; 
-            width: 100%;
+            width: $page-container-width;
 
-            & > * {
-                margin: 0 auto;
-                width: fit-content;
-                max-width: 80%;
-                text-align: justify;
-            }
+            & > * { width: 100%; text-align: center; }
 
-            section {
+            & > section {
+                
+                width: 100%;
                 margin-top: 3em;
+
+                & > * {
+                    margin: 0 auto;
+                    width: fit-content;
+                    max-width: 80%;
+                    text-align: justify;
+                }
+
+                h1, h2, h3, h4, h5, h6, p {
+                    margin-top: 1rem;
+                }
             }
+        }
+
+        footer, header {
+            $footer-padding: 3em;
+
+            padding: $footer-padding;
+            width: calc( $page-container-width - (2 * $footer-padding) );
         }
     }
 }
+
+iframe { background-color: #654321; }
