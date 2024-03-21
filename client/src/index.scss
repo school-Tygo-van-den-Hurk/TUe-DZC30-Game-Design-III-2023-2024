@@ -1,0 +1,99 @@
+:root {
+    --accent-color: #FF0000;
+    
+    // Variables related to colors and styling
+    --background-background-color-dark: #000000;
+    --background-color-dark: #303030;
+    --title-color-dark: #FFFFFF;
+    --color-dark: #808080;
+    --layer-0-dark: #404040;
+
+    --background-background-color-light: #FFFFFF;
+    --background-color-light: #DFDFDF;
+    --title-color-light: #000000;
+    --color-light: #808080;
+    --layer-0-light: #CFCFCF;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SETTING THE VARIABLES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+:root {
+    --background-background-color: var(--background-background-color-dark);
+    --background-color: var(--background-color-dark);
+    --title-color: var(--title-color-dark);
+    --color: var(--color-dark);
+    --layer-0: var(--layer-0-dark);
+}
+@media (prefers-color-scheme: light) {
+    :root {
+        --background-background-color: var(--background-background-color-light);
+        --background-color: var(--background-color-light);
+        --title-color: var(--title-color-light);
+        --color: var(--color-light);
+        --layer-0: var(--layer-0-light);
+    }
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-background-color: var(--background-background-color-dark);
+        --background-color: var(--background-color-dark);
+        --title-color: var(--title-color-dark);
+        --color: var(--color-dark);
+        --layer-0: var(--layer-0-dark);
+    }
+}
+
+* {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    color: var(--color);
+    font-family: var(--text-font);
+    font-size: var(--text-font-size);
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    margin: 0;
+    padding: 0;
+    // Rendering : Display, Position, 
+    // Other
+    box-sizing: border-box;
+    accent-color: var(--accent-color);
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ STYLING THE HTML ELEMENTS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+html {
+    min-width: 100vw;
+    min-height: 100vh;
+    background-color: var(--background-background-color);
+
+    body {
+        background-color: var(--background-color);
+        max-width: 60em;
+        margin: 0 auto;
+        min-height: 100vh;
+    }
+}
+
+nav {
+    width: 100%;
+    margin: 0 auto;
+    padding: 1em 10%;
+    display: flex;
+    justify-content: space-between;
+
+    background-color: var(--layer-0);
+
+    * {
+        color: var(--title-color) !important;
+    }
+}
+
+main {
+    padding: 1em;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    color: var(--title-color);
+}
+
+a {
+    text-decoration: none;
+    color: var(--accent-color);
+}

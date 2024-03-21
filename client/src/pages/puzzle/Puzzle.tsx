@@ -1,9 +1,12 @@
 function Puzzle() {
     return (
-      <div>
-        <h1>This is the Puzzle page</h1>
-      </div>
+        <>
+            <h1> This is the Puzzle page </h1>
+            <p>
+                Some text about the puzzle.
+            </p>
+        </>
     );
-  }
-  
-  export default Puzzle;
+}
+
+export default Puzzle;

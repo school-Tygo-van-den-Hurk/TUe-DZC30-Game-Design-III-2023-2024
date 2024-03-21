@@ -7,14 +7,18 @@ import Puzzle from './pages/puzzle/Puzzle';
 function App() {
     return (
         <div className="App">
-            <Link to="/maps">to the maps page</Link><br/>
-            <Link to="/puzzle">to the puzzle</Link><br/>
-            <Link to="/">home page</Link><br/>
-            <Routes>
-                <Route path="/maps" element={ <Maps/> } />
-                <Route path="/" element={ <Home/> } />
-                <Route path="/puzzle" element={ <Puzzle/> } />
-            </Routes>
+            <nav>
+                <Link to="/maps">to the maps page</Link>
+                <Link to="/puzzle">to the puzzle</Link>
+                <Link to="/">home page</Link>
+            </nav>
+            <main>
+                <Routes>
+                    <Route path="/maps" element={ <Maps/> } />
+                    <Route path="/" element={ <Home/> } />
+                    <Route path="/puzzle" element={ <Puzzle/> } />
+                </Routes>
+            </main>
         </div>
     );
 }
