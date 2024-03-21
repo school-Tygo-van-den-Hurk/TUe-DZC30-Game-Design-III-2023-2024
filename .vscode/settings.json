@@ -95,7 +95,7 @@
         {
             "format": "compressed",
             "extensionName": ".css", 
-            "savePath": "/server/styles/css"
+            "savePath": "/client"
         }
     ],
     "cSpell.words": [
