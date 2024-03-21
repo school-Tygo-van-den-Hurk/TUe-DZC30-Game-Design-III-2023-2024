@@ -91,13 +91,13 @@
             "italic": false
         }
     ],
-    "liveSassCompile.settings.formats": [
-        {
-            "format": "compressed",
-            "extensionName": ".css", 
-            "savePath": "/client"
-        }
-    ],
+    // "liveSassCompile.settings.formats": [
+    //     {
+    //         "format": "compressed",
+    //         "extensionName": ".css", 
+    //         "savePath": "/client"
+    //     }
+    // ],
     "cSpell.words": [
         "crossorigin",
         "middot",
