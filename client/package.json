@@ -3,6 +3,7 @@
   "private": true,
   "version": "0.8.0",
   "type": "module",
+  "author": "Tygo van den Hurk <hazels.05.remount@icloud.com>",
   "scripts": {
     "dev": "vite",
     "build": "tsc && vite build",
