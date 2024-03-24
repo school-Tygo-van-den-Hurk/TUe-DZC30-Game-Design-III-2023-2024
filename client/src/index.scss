@@ -1,5 +1,5 @@
 :root {
-    --accent-color: #FF0000;
+    --accent-color: #5550b7;
     
     // Variables related to colors and styling
     --background-background-color-dark: #000000;
@@ -8,11 +8,11 @@
     --color-dark: #808080;
     --layer-0-dark: #404040;
 
-    --background-background-color-light: #FFFFFF;
-    --background-color-light: #DFDFDF;
+    --background-background-color-light: #CFCFCF;
+    --background-color-light: #FFFFFF;
     --title-color-light: #000000;
     --color-light: #808080;
-    --layer-0-light: #CFCFCF;
+    --layer-0-light: #DFDFDF;
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ SETTING THE VARIABLES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -69,9 +69,21 @@ html {
         max-width: 100em;
         margin: 0 auto;
         min-height: 100vh;
+        border: solid 1px var(--color);
+        //// display: flex;
+        //// flex-direction: column;
+        display: grid;
+        grid-template-rows: auto 1fr auto;
 
         main {
-            padding: 0 10%;
+            padding: 0 10% 3rem 10%;
+            //// flex: 1;
+        }
+
+        footer {
+            background-color: var(--layer-0);
+            padding: 1em 10vw;
+            margin-top: auto;
         }
     }
 }
@@ -115,4 +127,6 @@ p {
 a {
     text-decoration: none;
     color: var(--accent-color);
+} a:hover {
+    text-decoration: underline;
 }

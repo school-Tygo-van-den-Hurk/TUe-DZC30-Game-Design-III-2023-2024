@@ -22,3 +22,17 @@
   color: var(--accent-color);
   text-decoration: underline;
 }
+.nav-bar .navbar-icon {
+  display: none;
+  aspect-ratio: 1/1;
+  height: var(--font-size);
+}
+
+@media (max-width: 450px) {
+  .hide-navbar {
+    display: none !important;
+  }
+  .navbar-icon {
+    display: inline-block !important;
+  }
+}

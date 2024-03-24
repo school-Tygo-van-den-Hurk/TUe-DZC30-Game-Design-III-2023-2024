@@ -1,8 +1,12 @@
 import { NavLink as ReactRouterNavLink, Route, Routes, useLocation } from 'react-router-dom';
 import './App.css';
+import './index.css';
 import Maps from './pages/maps/Maps';
 import Home from './pages/home/Home';
 import Puzzle from './pages/puzzle/Puzzle';
+import Lore from './pages/lore/Lore';
+import About from './pages/about/About';
+import { repositoryURL } from './pages/constants';
 
 function NavLink(props: { to: string; children: React.ReactNode; }) {
     const { pathname } = useLocation();
@@ -15,22 +19,47 @@ function NavLink(props: { to: string; children: React.ReactNode; }) {
 }
 
 function App() {
+    
+    const launchYear  = (2024);
+    const currentYear = (new Date().getFullYear());
+    const copyRightYear = (currentYear<=launchYear?`${launchYear}`:`${launchYear}-${currentYear}`);
+
     return (
         <div className="App">
-            <div className="nav-bar">
-                <nav>
-                    <NavLink to="/">Home</NavLink>
-                    <NavLink to="/puzzle">Puzzle</NavLink>
-                    <NavLink to="/maps">Map</NavLink>
-                </nav>
-            </div>
+            <header>
+                <div className="nav-bar">
+                    <nav className="hide-navbar">
+                        <NavLink to="/">Home</NavLink>
+                        <NavLink to="/puzzle">Puzzle</NavLink>
+                        <NavLink to="/maps">Map</NavLink>
+                        <NavLink to="/lore">Lore</NavLink>
+                        <NavLink to="/about">About</NavLink>
+                    </nav>
+                    <img className="navbar-icon" src="/hamburger-menu-stripes.svg" 
+                        alt="a classic hamburger menu icon, three horizontal stripes" />
+                    <img className="navbar-icon hidden" src="/hamburger-menu-cross.svg" 
+                        alt="a classic close menu icon, a cross"
+                    />
+                </div>
+            </header>
             <main>
                 <Routes>
-                    <Route path="/" element={ <Home/> } />
-                    <Route path="/maps" element={ <Maps/> } />
+                    <Route path="/"       element={ <Home/>   } />
+                    <Route path="/maps"   element={ <Maps/>   } />
                     <Route path="/puzzle" element={ <Puzzle/> } />
-                </Routes>
+                    <Route path="/lore"   element={ <Lore/>   } />
+                    <Route path="/about"  element={ <About/>  } />
+                </Routes> 
             </main>
+            <footer>
+                <p id="copyright-notice">
+                    Copyright &copy; {copyRightYear} &middot; Group 4 for Game Design III, 
+                    a course from TU/e &middot; all rights reserved.
+                </p>
+                <p>
+                    All the source the code is hosted on <a href={repositoryURL}>Github</a>.
+                </p>
+            </footer>
         </div>
     );
 }
