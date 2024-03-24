@@ -1,8 +1,11 @@
 div.map-container {
   aspect-ratio: 1/1;
+  background-color: #808080;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
 }
 
-.bordered, .failed, .loading, .success {
+.bordered, .failed, .loading, .success, div.map-container {
   border-radius: 15px;
   border-width: 3px;
   border-style: solid;
