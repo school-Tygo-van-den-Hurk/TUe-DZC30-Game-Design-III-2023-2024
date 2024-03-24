@@ -1,0 +1,6 @@
+.image-container {
+  margin: 3rem auto 0 auto;
+}
+.image-container * {
+  width: 100%;
+}
