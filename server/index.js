@@ -1,17 +1,26 @@
-const express = require("express");
+"use strict"; //! @Eryk do not touch this file unless absolutely needed.
+
+import getLocation from "./get-location.js";
+import express from "express";
+import cors from "cors";
+import print from "./Printer.js";
 
 const app = express();
-const cors = require('cors');
 app.use(cors())
 
-app.get("/", (request, response) => {
-    response.send("Go to \"/api/coordinates\".");
+const pathToCoordinate = ("/api/coordinates");
+app.get("/", (_request, response) => { 
+    print(`Got request from \"${requesterIP}\" for \"/\".`);
+    response.send(`go to \"${pathToCoordinate}\" for the coordinates.`); 
 });
 
-app.get("/api/coordinates", (request, response) => {
-    // TODO : Implement GPS COORDINATES USING: 
-    // https://dzone.com/articles/read-gps-data-with-a-raspberry-pi-zero-w-and-nodej
-    response.json({ lat:0.0, lon:0.0 });
+app.get(pathToCoordinate, (request, response) => { 
+    const requesterIP = (request.socket.remoteAddress);
+    print(`Got request from \"${requesterIP}\" for \"${pathToCoordinate}\".`);
+    response.json(getLocation()) 
 });
 
-app.listen(3001);
+const port = (3001);
+app.listen(port);
+print(`running on http://localhost:${port}`)    
+
