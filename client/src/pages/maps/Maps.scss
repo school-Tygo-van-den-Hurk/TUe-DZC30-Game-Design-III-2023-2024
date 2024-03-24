@@ -1,0 +1,35 @@
+div.map-container {
+    aspect-ratio: 1/1;
+}
+
+.bordered {
+    border-radius: 15px;
+    border-width: 3px;
+    border-style: solid;
+    margin: 2em auto;
+    padding: 1em
+}
+
+.success {
+    @extend .bordered;
+
+    border-color: green;
+    background-color: lightgreen;
+    color: green;
+}
+
+.loading {
+    @extend .bordered;
+
+    border-color: orange;
+    background-color: yellow;
+    color: orange;
+}
+
+.failed {
+    @extend .bordered;
+
+    border-color: red;
+    background-color: coral;
+    color: red;
+}

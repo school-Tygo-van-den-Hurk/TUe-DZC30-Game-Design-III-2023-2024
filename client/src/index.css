@@ -40,8 +40,8 @@
 }
 * {
   color: var(--color);
-  font-family: var(--text-font);
-  font-size: var(--text-font-size);
+  font-family: monospace;
+  font-size: var(--font-size);
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -55,29 +55,66 @@ html {
 }
 html body {
   background-color: var(--background-color);
-  max-width: 60em;
+  max-width: 100em;
   margin: 0 auto;
   min-height: 100vh;
 }
-
-nav {
-  width: 100%;
-  margin: 0 auto;
-  padding: 1em 10%;
-  display: flex;
-  justify-content: space-between;
-  background-color: var(--layer-0);
-}
-nav * {
-  color: var(--title-color) !important;
+html body main {
+  padding: 0 10%;
 }
 
-main {
-  padding: 1em;
+:root {
+  --font-size: 14px;
+  --title-font-starter-size: calc( var(--font-size) * 3 );
+  --title-font-step-down-size: calc( var(--font-size) / 4 );
+}
+
+h1 {
+  font-size: calc(var(--title-font-starter-size) - var(--title-font-step-down-size) * 1);
+  margin-top: calc(var(--title-font-starter-size) - var(--title-font-step-down-size) * 1);
+}
+
+h2 {
+  font-size: calc(var(--title-font-starter-size) - var(--title-font-step-down-size) * 2);
+  margin-top: calc(var(--title-font-starter-size) - var(--title-font-step-down-size) * 2);
+}
+
+h3 {
+  font-size: calc(var(--title-font-starter-size) - var(--title-font-step-down-size) * 3);
+  margin-top: calc(var(--title-font-starter-size) - var(--title-font-step-down-size) * 3);
+}
+
+h4 {
+  font-size: calc(var(--title-font-starter-size) - var(--title-font-step-down-size) * 4);
+  margin-top: calc(var(--title-font-starter-size) - var(--title-font-step-down-size) * 4);
+}
+
+h5 {
+  font-size: calc(var(--title-font-starter-size) - var(--title-font-step-down-size) * 5);
+  margin-top: calc(var(--title-font-starter-size) - var(--title-font-step-down-size) * 5);
+}
+
+h6 {
+  font-size: calc(var(--title-font-starter-size) - var(--title-font-step-down-size) * 6);
+  margin-top: calc(var(--title-font-starter-size) - var(--title-font-step-down-size) * 6);
 }
 
 h1, h2, h3, h4, h5, h6 {
   color: var(--title-color);
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+p {
+  margin-top: 1rem;
+  margin-left: auto;
+  margin-right: auto;
+  text-align: justify;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 a {

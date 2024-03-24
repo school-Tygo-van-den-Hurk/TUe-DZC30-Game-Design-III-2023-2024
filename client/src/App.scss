@@ -1,0 +1,26 @@
+.nav-bar {
+    width: 100%;
+    padding: 0 10%;
+    background-color: var(--layer-0);
+
+    nav {
+        margin: 0 auto;
+        padding: 1em 1em;
+        max-width: 60em;
+        display: flex;
+        justify-content: space-between;
+
+
+        a { 
+            color: var(--color); 
+            transition: all 0.3s ease; 
+        } a.active-nav-link {
+            // color:var(--accent-color);
+            font-weight: bold;
+            color: var(--title-color);
+        } a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+    }
+}
