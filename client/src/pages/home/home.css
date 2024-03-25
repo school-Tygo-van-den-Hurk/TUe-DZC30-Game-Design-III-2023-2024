@@ -1,0 +1,11 @@
+ol, ul {
+  margin-top: 1em;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: auto;
+  margin-right: auto;
+}
+ol li, ul li {
+  width: -moz-fit-content;
+  width: fit-content;
+}

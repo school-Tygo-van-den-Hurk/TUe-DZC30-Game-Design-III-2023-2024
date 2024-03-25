@@ -6,7 +6,7 @@ import Home from './pages/home/Home';
 import Puzzle from './pages/puzzle/Puzzle';
 import Lore from './pages/lore/Lore';
 import About from './pages/about/About';
-import { repositoryURL } from './pages/constants';
+import { contactURL, repositoryURL } from './pages/constants';
 
 function NavLink(props: { to: string; children: React.ReactNode; }) {
     const { pathname } = useLocation();
@@ -52,13 +52,20 @@ function App() {
                 </Routes> 
             </main>
             <footer>
-                <p id="copyright-notice">
-                    Copyright &copy; {copyRightYear} &middot; Group 4 for Game Design III, 
-                    a course from TU/e &middot; all rights reserved.
-                </p>
-                <p>
-                    All the source the code is hosted on <a href={repositoryURL}>Github</a>.
-                </p>
+                <img src="/icon.responsive.svg" alt="A skull with swords" style={{
+                    width:"100%",
+                    maxWidth:"5em"
+                }} />
+                <div id="footer-text">
+                    <p id="copyright-notice">
+                        Copyright &copy; {copyRightYear} &middot; Group 4 for Game Design III, 
+                        a course from TU/e &middot; all rights reserved.
+                    </p>
+                </div>
+                <ul>
+                    <li><a href={repositoryURL}>GitHub</a></li>
+                    <li><a href={contactURL}>Contact</a></li>
+                </ul>
             </footer>
         </div>
     );

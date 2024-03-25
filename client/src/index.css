@@ -48,6 +48,11 @@
   accent-color: var(--accent-color);
 }
 
+:root {
+  --content-width: 100%;
+  --content-max-width: 60em;
+}
+
 html {
   min-width: 100vw;
   min-height: 100vh;
@@ -68,6 +73,22 @@ html .App main {
 html .App header, html .App footer {
   background-color: var(--layer-0);
   padding: 1em 10vw;
+}
+html .App footer img {
+  display: none;
+}
+html .App footer #footer-text {
+  display: block;
+}
+html .App footer ul {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  grid-gap: 1em;
+}
+html .App footer ul li {
+  width: -moz-fit-content;
+  width: fit-content;
+  list-style: none;
 }
 
 :root {

@@ -59,6 +59,11 @@
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ STYLING THE HTML ELEMENTS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
+:root {
+    --content-width: 100%;
+    --content-max-width: 60em;
+}
+
 html {
     min-width: 100vw;
     min-height: 100vh;
@@ -70,22 +75,75 @@ html {
         margin: 0 auto;
         min-height: 100vh;
         border: solid 1px var(--color);
-        //// display: flex;
-        //// flex-direction: column;
         display: grid;
         grid-template-rows: auto 1fr auto;
     
         main {
             padding: 0 10% 3rem 10%;
-            //// flex: 1;
         }
     
         header, footer {
             background-color: var(--layer-0);
             padding: 1em 10vw;
         }
+
+        footer {
+            
+            img {
+                display: none;
+            }
+
+            #footer-text {
+                display: block;
+            }
+
+            ul {
+                display: grid;
+                grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); 
+                grid-gap: 1em;
+
+                li {
+                    width: fit-content;
+                    list-style: none;
+                }
+            }
+        }
     }
 }
+
+// @media screen and (min-width: 550px) {
+//     html {
+//         .App {
+//             footer {
+//                 display: grid;
+//                 grid-template-columns: auto auto auto;
+//                 gap: 1em 3em;
+    
+//                 #footer-text {
+//                     display: flex;
+//                     align-items: center;
+    
+//                     * {
+//                         margin: auto;
+//                     }
+//                 }
+    
+//                 ul {
+//                     display: flex;
+//                     align-items: center;
+//                     flex-direction: column;
+    
+//                     li {
+//                         display: block;
+//                         width: 100%;
+//                         list-style: none;
+//                         margin: auto;
+//                     }
+//                 }
+//             }
+//         }
+//     }
+// }
 
 :root { 
     --font-size: 14px;
