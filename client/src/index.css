@@ -53,7 +53,7 @@ html {
   min-height: 100vh;
   background-color: var(--background-background-color);
 }
-html body {
+html .App {
   background-color: var(--background-color);
   max-width: 100em;
   margin: 0 auto;
@@ -62,13 +62,12 @@ html body {
   display: grid;
   grid-template-rows: auto 1fr auto;
 }
-html body main {
+html .App main {
   padding: 0 10% 3rem 10%;
 }
-html body footer {
+html .App header, html .App footer {
   background-color: var(--layer-0);
   padding: 1em 10vw;
-  margin-top: auto;
 }
 
 :root {

@@ -64,7 +64,7 @@ html {
     min-height: 100vh;
     background-color: var(--background-background-color);
 
-    body {
+    .App {
         background-color: var(--background-color);
         max-width: 100em;
         margin: 0 auto;
@@ -74,16 +74,15 @@ html {
         //// flex-direction: column;
         display: grid;
         grid-template-rows: auto 1fr auto;
-
+    
         main {
             padding: 0 10% 3rem 10%;
             //// flex: 1;
         }
-
-        footer {
+    
+        header, footer {
             background-color: var(--layer-0);
             padding: 1em 10vw;
-            margin-top: auto;
         }
     }
 }
