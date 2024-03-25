@@ -1,6 +1,6 @@
 // TODO : @Tygo create a 
 
-import { contactURL } from "../constants";
+import { contactURL } from "../../constants";
 import "./puzzle.css";
 
 function getPuzzle() {

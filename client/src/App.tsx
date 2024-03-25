@@ -6,7 +6,7 @@ import Home from './pages/home/Home';
 import Puzzle from './pages/puzzle/Puzzle';
 import Lore from './pages/lore/Lore';
 import About from './pages/about/About';
-import { contactURL, repositoryURL } from './pages/constants';
+import { contactURL, repositoryURL } from './constants';
 
 function NavLink(props: { to: string; children: React.ReactNode; }) {
     const { pathname } = useLocation();
@@ -18,6 +18,8 @@ function NavLink(props: { to: string; children: React.ReactNode; }) {
     );
 }
 
+const decommissioned = false; // TODO : set to true when the course is over.
+
 function App() {
     
     const launchYear  = (2024);
@@ -27,6 +29,7 @@ function App() {
     return (
         <div className="App">
             <header>
+                {warn()}
                 <div className="nav-bar">
                     <nav className="hide-navbar">
                         <NavLink to="/">Home</NavLink>
@@ -69,6 +72,25 @@ function App() {
             </footer>
         </div>
     );
+}
+
+function warn() {
+    if (decommissioned) return (
+        <div className="notification">
+            <p style={{
+                border:"solid red 1px", color:"red", width:"100%", backgroundColor:"coral", padding:"1em", marginBottom:"1em"
+            }}>
+                <b style={{color:"inherit"}}>Warning</b>:<i style={{color:"inherit"}}> this game is decommissioned. 
+                as the course it was made for ended. The website is still up, however, the game can no longer be 
+                played without the treasure.</i>
+            </p>
+        </div>
+    );
+
+    else return (
+        <>
+        </>
+    )
 }
 
 export default App;

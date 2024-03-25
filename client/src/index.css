@@ -5,11 +5,11 @@
   --title-color-dark: #FFFFFF;
   --color-dark: #808080;
   --layer-0-dark: #404040;
-  --background-background-color-light: #CFCFCF;
+  --background-background-color-light: #e6e7eb;
   --background-color-light: #FFFFFF;
   --title-color-light: #000000;
   --color-light: #808080;
-  --layer-0-light: #DFDFDF;
+  --layer-0-light: #d9d4dc;
 }
 
 :root {
@@ -48,6 +48,16 @@
   accent-color: var(--accent-color);
 }
 
+* {
+  overflow: -moz-scrollbars-none;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+*::-webkit-scrollbar {
+  display: none;
+}
+
 :root {
   --content-width: 100%;
   --content-max-width: 60em;
@@ -64,6 +74,8 @@ html .App {
   margin: 0 auto;
   min-height: 100vh;
   border: solid 1px var(--color);
+  border-top: none;
+  border-bottom: none;
   display: grid;
   grid-template-rows: auto 1fr auto;
 }

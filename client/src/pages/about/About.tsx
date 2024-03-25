@@ -1,4 +1,4 @@
-import { repositoryURL, urlTygo, urlLeo, urlRuben, urlEryk, contactURL } from "./../constants";
+import { repositoryURL, urlTygo, urlLeo, urlRuben, urlEryk, contactURL } from "../../constants";
 
 function About() {
     return (
@@ -11,8 +11,6 @@ function About() {
                 <a href={urlLeo} > Leonidas Hadjiyiannis</a>, 
                 <a href={urlRuben} > Ruben Savelkouls</a>, and
                 <a href={urlEryk} > Eryk Kiepuszewski</a>.
-            </p>
-            <p>
                 The source code is available on <a href={repositoryURL}>GitHub</a> for your entertainment. If you have any
                 questions, or concerns, you 
                 can <a href={contactURL}>contact me</a>.
