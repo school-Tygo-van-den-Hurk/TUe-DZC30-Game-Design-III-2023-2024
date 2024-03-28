@@ -4,7 +4,7 @@ import getLocation from "./maps.js";
 import express, { response } from "express";
 import cors from "cors";
 import print from "./Printer.js";
-import { lastSolve, getPuzzle } from "./puzzle.js";
+import Puzzle from "./puzzle.js";
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
@@ -29,15 +29,18 @@ const httpStatusCodes = {
 const documentation = {
     _:"This JSON responds contains any of the information on how to use this server",
     paths:[
-        { path:"/maps",   use:""},
-        { path:"/puzzle", use:""}
+        { path:"/maps",   use:"the coordinates"},
+        { path:"/puzzle", use:"the puzzle text"}
     ]
 };
 
-const defaultResponse = (`Go to \"${documentation.paths.join("\", \"")}\".`);
-app.get("/", (_request, response) => response.status(httpStatusCodes.notFound).send(defaultResponse) );
-app.get(documentation.paths[0], (_request, response) => response.status(httpStatusCodes.ok).json(getLocation()) );
-app.get(documentation.paths[1], (_request, response) => response.status(httpStatusCodes.ok).json(getPuzzle()) );
+const defaultResponse = (`Go to: ${documentation.paths.map((element) => `\"${element.path}\" for ${element.use}`).join(", ")}.`);
+app.get("/", (_request, response) => response.status(httpStatusCodes.notFound).send(defaultResponse));
+
+//// app.get("/favicon.ico", (_request, response) => response.sendFile(path.join(".", "")));
+
+app.get(documentation.paths[0].path, (_request, response) => response.status(httpStatusCodes.ok).json(getLocation()) );
+app.get(documentation.paths[1].path, (_request, response) => response.status(httpStatusCodes.ok).json(Puzzle.get()) );
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
