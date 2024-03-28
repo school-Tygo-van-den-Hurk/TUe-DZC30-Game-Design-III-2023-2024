@@ -21,14 +21,23 @@ app.use((request, _response, next) => {
 });
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+const httpStatusCodes = {
+    ok:200,
+    notFound:404,
+};
 
-const pathToCoordinate = ("/maps");
-const pathToPuzzle = ("/puzzle");
-const defaultResponse = (`Go to \"${pathToPuzzle}\", or \"${pathToCoordinate}\".`);
+const documentation = {
+    _:"This JSON responds contains any of the information on how to use this server",
+    paths:[
+        { path:"/maps",   use:""},
+        { path:"/puzzle", use:""}
+    ]
+};
 
-app.get("/",              (_request, response) => response.send(defaultResponse) );
-app.get(pathToPuzzle,     (_request, response) => response.json(getPuzzle()) );
-app.get(pathToCoordinate, (_request, response) => response.json(getLocation()) );
+const defaultResponse = (`Go to \"${documentation.paths.join("\", \"")}\".`);
+app.get("/", (_request, response) => response.status(httpStatusCodes.notFound).send(defaultResponse) );
+app.get(documentation.paths[0], (_request, response) => response.status(httpStatusCodes.ok).json(getLocation()) );
+app.get(documentation.paths[1], (_request, response) => response.status(httpStatusCodes.ok).json(getPuzzle()) );
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
