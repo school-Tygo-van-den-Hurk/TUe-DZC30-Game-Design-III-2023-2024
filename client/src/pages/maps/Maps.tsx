@@ -3,6 +3,11 @@
 import "./Maps.css"; 
 import axios from 'axios';
 import useSWR from 'swr';
+import dotenv from "dotenv";
+import process from "process";
+
+dotenv.config();
+const GOOGLE_MAPS_API_KEY = (process.env?.GOOGLE_MAPS_API_KEY);
 
 const https = false;
 const port = 3001;
@@ -37,6 +42,7 @@ function getMap(data:BackendCoordinateRequestResult) {
                 <p style={{color:"var(--accent-color)", paddingTop:"45%"}}>
                     This is a placeholder for the map... <br/>
                     ({data.coordinates.lat}, {data.coordinates.lon})
+                    {GOOGLE_MAPS_API_KEY}
                 </p>
             </div>
         </>
