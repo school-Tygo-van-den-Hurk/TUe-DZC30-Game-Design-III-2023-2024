@@ -60,7 +60,7 @@
 
 :root {
   --content-width: 100%;
-  --content-max-width: 60em;
+  --content-max-width: 1520em;
 }
 
 html {
@@ -70,7 +70,7 @@ html {
 }
 html .App {
   background-color: var(--background-color);
-  max-width: 100em;
+  max-width: var(--content-max-width);
   margin: 0 auto;
   min-height: 100vh;
   border: solid 1px var(--color);
@@ -80,7 +80,7 @@ html .App {
   grid-template-rows: auto 1fr auto;
 }
 html .App main {
-  padding: 0 10% 3rem 10%;
+  padding: 0 20% 3rem 20%;
 }
 html .App header, html .App footer {
   background-color: var(--layer-0);
@@ -164,4 +164,43 @@ a {
 
 a:hover {
   text-decoration: underline;
+}
+
+div.map-container {
+  aspect-ratio: 1/1;
+  background-color: #808080;
+  margin-top: 3rem;
+  margin-bottom: 3rem;
+}
+
+.bordered, .failed, .loading, .success, div.map-container {
+  border-radius: 15px;
+  border-width: 3px;
+  border-style: solid;
+  margin: 2em auto;
+  padding: 1em;
+}
+
+.success {
+  border-color: green;
+  background-color: lightgreen;
+  color: green;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.loading {
+  border-color: orange;
+  background-color: yellow;
+  color: orange;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.failed {
+  border-color: red;
+  background-color: coral;
+  color: red;
+  width: -moz-fit-content;
+  width: fit-content;
 }

@@ -1,4 +1,4 @@
-import { repositoryURL, urlTygo, urlLeo, urlRuben, urlEryk, contactURL } from "../../constants";
+import { repositoryURL, urlTygo, urlLeo, urlRuben, urlEryk, contactURL } from "../../assets/constants";
 
 function About() {
     return (

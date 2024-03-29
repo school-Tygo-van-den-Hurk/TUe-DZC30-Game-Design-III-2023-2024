@@ -8,5 +8,50 @@ pre {
     code {
         color: var(--title-color);
         font-family: 'Courier New', Courier, monospace;
+        white-space: nowrap;
+    }
+}
+
+form {
+    display: block;
+
+    label {
+        display: block;
+        width: 100%; //// fit-content;
+        max-width: 400px;
+        margin: 3em auto;
+        text-align: center;
+
+        input {
+            display: block;
+            width: 100%;
+            padding: 1em;
+            background-color: var(--layer-0);
+            border: none;
+            // border-style: solid;
+            // border-width: 1px;
+            // min-height: em;
+            height: fit-content;
+            //// border-color: var(--title-color);
+            border-radius: 15px;
+            color: var(--title-color);
+            margin: 0em;
+            margin-top: 0.5em;
+        } input:focus {
+            outline: var(--accent-color);
+        }
+    }
+
+    button {
+        display: block;
+        width: fit-content;
+        margin: 3em auto;   
+        padding: 0.5em;
+        background-color: var(--layer-0);
+        border-style: solid;
+        border-width: 1px;
+        //// border-color: var(--title-color);
+        border-radius: 15px;
+        color: var(--title-color);
     }
 }

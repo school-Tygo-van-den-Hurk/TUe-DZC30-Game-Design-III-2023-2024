@@ -3,16 +3,14 @@
 import "./Maps.css"; 
 import axios from 'axios';
 import useSWR from 'swr';
-import dotenv from "dotenv";
-import process from "process";
+import server from "../../assets/server";
+// import dotenv from "dotenv";
+// import process from "process";
 
-dotenv.config();
-const GOOGLE_MAPS_API_KEY = (process.env?.GOOGLE_MAPS_API_KEY);
+// dotenv.config();
+// const GOOGLE_MAPS_API_KEY = (process.env?.GOOGLE_MAPS_API_KEY);
 
-const https = false;
-const port = 3001;
-const domain = "localhost";
-const path = "/maps";
+const path = "maps";
 
 interface BackendCoordinateRequestResult {
     coordinates:{ lat:number, lon:number }
@@ -42,7 +40,7 @@ function getMap(data:BackendCoordinateRequestResult) {
                 <p style={{color:"var(--accent-color)", paddingTop:"45%"}}>
                     This is a placeholder for the map... <br/>
                     ({data.coordinates.lat}, {data.coordinates.lon})
-                    {GOOGLE_MAPS_API_KEY}
+                    {/* {GOOGLE_MAPS_API_KEY} */}
                 </p>
             </div>
         </>
@@ -70,37 +68,6 @@ function getTextAndTitle() {
 }
 
 /**
- * A class to represent a URL.
- */
-class URL {
-
-    public readonly https:boolean;
-    public readonly domain:string;
-    public readonly port:number;
-    public readonly path:string;
-
-    public constructor(https:boolean, domain:string, port:number, path:string) {
-        this.https = https;
-        this.domain = domain;
-        this.port = port;
-        this.path = path;
-    }
-
-    private url:string|null = null;
-
-    public toString():string {
-        
-        if (this.url) return this.url;
-
-        const protocol:string = (https) ? ("https") : ("http");
-        const path:string = (this.path.startsWith('/')) ? (this.path.substring(1, this.path.length)) : (this.path);
-        this.url = (`${protocol}://${this.domain}:${this.port}/${path}`);
-
-        return ( this.url );
-    }
-}
-
-/**
  * The maps page has to load in the coordinates from the backend. That's why it has three states:
  * - loading,
  * - failure,
@@ -112,28 +79,28 @@ class URL {
  */
 function Maps() {
 
-    const url:string = ((new URL(https, domain, port, path)).toString());
+    const url:string = (`${server.getURL()}${path}`);
     const fetcher:(url:string)=>Promise<any> = (url:string) => axios.get(url).then(res => res.data);
     const { data, error, isValidating } = useSWR(url, fetcher);
 
     if (error) return (
         <>
-            {getTextAndTitle()}
             {failed(error)}
+            {getTextAndTitle()}
         </>
     );
     
     if (isValidating) return (
         <>
-            {getTextAndTitle()}
             {loading()}
+            {getTextAndTitle()}
         </>
     );
 
     return (
         <>
-            {getTextAndTitle()}
             {success(data)}
+            {getTextAndTitle()}
         </>
     );
 }
@@ -145,9 +112,6 @@ function Maps() {
  * @returns the HTML on a successful load.
  */
 function success(data:BackendCoordinateRequestResult) {
-
-    console.debug(data);
-
     return (
         <>
             <p className="success"> The coordinates loaded successfully. </p>

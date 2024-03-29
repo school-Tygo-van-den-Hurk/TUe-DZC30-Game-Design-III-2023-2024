@@ -5,3 +5,5 @@ export const urlTygo  = "https://redirects.tygo.van.den.hurk.dev/about";
 export const urlLeo   = "#";
 export const urlRuben = "#";
 export const urlEryk  = "#";
+
+export const isDevEnv = import.meta.env.DEV //// true //// ((process.env.DEV) && (process.env.DEV  === "true"));

@@ -65,7 +65,7 @@
 
 :root {
     --content-width: 100%;
-    --content-max-width: 60em;
+    --content-max-width: 1520em;
 }
 
 html {
@@ -75,7 +75,7 @@ html {
 
     .App {
         background-color: var(--background-color);
-        max-width: 100em;
+        max-width: var(--content-max-width);
         margin: 0 auto;
         min-height: 100vh;
         border: solid 1px var(--color);
@@ -85,7 +85,7 @@ html {
         grid-template-rows: auto 1fr auto;
     
         main {
-            padding: 0 10% 3rem 10%;
+            padding: 0 20% 3rem 20%;
         }
     
         header, footer {
@@ -192,4 +192,50 @@ a {
     color: var(--accent-color);
 } a:hover {
     text-decoration: underline;
+}
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ STYLING THE HTML ELEMENTS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+div.map-container {
+    @extend .bordered;
+
+    aspect-ratio: 1/1;
+    background-color: #808080;
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.bordered {
+    border-radius: 15px;
+    border-width: 3px;
+    border-style: solid;
+    margin: 2em auto;
+    padding: 1em
+}
+
+.success {
+    @extend .bordered;
+
+    border-color: green;
+    background-color: lightgreen;
+    color: green;
+    width: fit-content;
+}
+
+.loading {
+    @extend .bordered;
+
+    border-color: orange;
+    background-color: yellow;
+    color: orange;
+    width: fit-content;
+}
+
+.failed {
+    @extend .bordered;
+
+    border-color: red;
+    background-color: coral;
+    color: red;
+    width: fit-content;
 }

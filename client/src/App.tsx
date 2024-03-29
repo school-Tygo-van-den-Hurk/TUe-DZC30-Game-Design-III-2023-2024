@@ -6,7 +6,7 @@ import Home from './pages/home/Home';
 import Puzzle from './pages/puzzle/Puzzle';
 import Lore from './pages/lore/Lore';
 import About from './pages/about/About';
-import { contactURL, repositoryURL } from './constants';
+import { contactURL, repositoryURL } from './assets/constants';
 
 function NavLink(props: { to: string; children: React.ReactNode; }) {
     const { pathname } = useLocation();
@@ -75,6 +75,8 @@ function App() {
 }
 
 function warn() {
+    const noContent = (<></>); // explanation for a constant
+
     if (decommissioned) return (
         <div className="notification">
             <p style={{
@@ -87,10 +89,7 @@ function warn() {
         </div>
     );
 
-    else return (
-        <>
-        </>
-    )
+    else return (noContent);
 }
 
 export default App;
