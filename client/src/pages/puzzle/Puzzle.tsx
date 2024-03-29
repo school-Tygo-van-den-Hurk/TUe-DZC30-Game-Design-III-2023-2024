@@ -97,7 +97,7 @@ function Puzzle() {
                 </label>
                 <label>
                     <p>The key to access the server:</p>
-                    <input name="key" type="number" min="99999" max="999999" required />
+                    <input name="key" type="number" min="100000" max="999999" required />
                 </label>
                 <button type="submit">Update</button>
             </form>

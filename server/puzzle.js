@@ -49,12 +49,12 @@ export default class Puzzle {
 
         const lastChange = (
             (this.lastChange) ? ({
-                year:    this.lastChange?.getFullYear(),
-                month:   this.lastChange?.getMonth(),
-                day:     this.lastChange?.getDay(),
-                hour:    this.lastChange?.getHours(),
-                minute:  this.lastChange?.getMinutes(),
-                seconds: this.lastChange?.getSeconds(),
+                year:    new Date(this.lastChange)?.getFullYear(),
+                month:   new Date(this.lastChange)?.getMonth(),
+                day:     new Date(this.lastChange)?.getDay(),
+                hour:    new Date(this.lastChange)?.getHours(),
+                minute:  new Date(this.lastChange)?.getMinutes(),
+                seconds: new Date(this.lastChange)?.getSeconds(),
             }) : (undefined)
         );
 
@@ -110,7 +110,7 @@ export default class Puzzle {
             this.puzzle = puzzle;
             print(
                 `\u001B[0m\u001B[32mSucces\u001B[0m updated ` +
-                `\u001B[33mPuzzle.puzzle\u001B[0m to \u001B[33m${puzzle}\u001B[0m`
+                `\u001B[33mPuzzle.puzzle\u001B[0m to \u001B[35m${puzzle}\u001B[0m`
             );
         }
 
@@ -118,7 +118,7 @@ export default class Puzzle {
             this.solution = solution;
             print(
                 `\u001B[0m\u001B[32mSucces\u001B[0m updated ` +
-                `\u001B[33mPuzzle.solution\u001B[0m to \u001B[33m${solution}\u001B[0m`
+                `\u001B[33mPuzzle.solution\u001B[0m to \u001B[35m${solution}\u001B[0m`
             );
         }
         
@@ -126,7 +126,7 @@ export default class Puzzle {
             this.key = key;
             print(
                 `\u001B[0m\u001B[32mSucces\u001B[0m updated ` +
-                `\u001B[33mPuzzle.key\u001B[0m to \u001B[33m${key}\u001B[0m`
+                `\u001B[33mPuzzle.key\u001B[0m to \u001B[35m${key}\u001B[0m`
             );
         }
         
@@ -134,7 +134,7 @@ export default class Puzzle {
             this.lastChange = date;
             print(
                 `\u001B[0m\u001B[32mSucces\u001B[0m updated `+
-                `\u001B[33mPuzzle.lastChange\u001B[0m to \u001B[33m${date}\u001B[0m`
+                `\u001B[33mPuzzle.lastChange\u001B[0m to \u001B[35m${date}\u001B[0m`
             );
         }
     }
@@ -177,7 +177,6 @@ function readJSON() {
 
     fs.readFile(filePath, "utf8", (error, data) => {
     
-        print("EXE");
 
         if (error) {
             print("\u001B[0m\u001B[31mError\u001B[0m reading puzzle file:", error.message);
@@ -187,10 +186,7 @@ function readJSON() {
         try {
     
             const puzzleSettings = JSON.parse(data);
-            print(
-                "\u001B[0m\u001B[32mSucces\u001B[0m the "+filePath+" file has been read and parsed successfully:", 
-                puzzleSettings
-            );
+            print(`\u001B[0m\u001B[32mSucces\u001B[0m the ${filePath} file has been read and parsed successfully. `);
     
             if (puzzleSettings.puzzle 
                 && puzzleSettings.solution
@@ -201,6 +197,17 @@ function readJSON() {
                 puzzleSettings.solution, 
                 puzzleSettings.key, 
                 new Date(puzzleSettings.date)
+            ); else print(
+                `\u001B[0m\u001B[31mError\u001B[0m there were attributes missing:\n` +
+                ` -\u001B[33m puzzleSettings.puzzle\u001B[0m:    ${
+                    (puzzleSettings.puzzle)?(`\u001B[35m${puzzleSettings.puzzle}`):(`\u001B[31m${puzzleSettings.puzzle}`)}\u001B[0m,\n` + 
+                ` -\u001B[33m puzzleSettings.solution\u001B[0m:  ${
+                    (puzzleSettings.solution)?(`\u001B[35m${puzzleSettings.solution}`):(`\u001B[31m${puzzleSettings.solution}`)}\u001B[35m\u001B[0m,\n` +
+                ` -\u001B[33m puzzleSettings.key\u001B[0m:       ${
+                    (puzzleSettings.key)?(`\u001B[35m${puzzleSettings.key}`):(`\u001B[31m${puzzleSettings.key}`)}\u001B[35m\u001B[0m,\n` +
+                ` -\u001B[33m puzzleSettings.date\u001B[0m:      ${
+                    (puzzleSettings.date)?(`\u001B[35m${puzzleSettings.date}`):(`\u001B[31m${puzzleSettings.date}`)}\u001B[35m\u001B[0m.\n` +
+                "They should all be\u001B[34m defined\u001B[0m and\u001B[34m non-null\u001B[0m."
             );
     
         } catch (error) {

@@ -6,6 +6,8 @@ import cors from "cors";
 import print from "./Printer.js";
 import Puzzle from "./puzzle.js";
 import bodyParser from "body-parser";
+import handleMessage from "./debugLiner.js";
+import readline from 'readline';
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
@@ -47,7 +49,7 @@ app.get(documentation.paths[1].path,  (_request, response) => response.status(ht
 app.post(documentation.paths[1].path, (request, response) => {
     
     const { puzzle, solution, key, } = request.body;
-    print("\u001B[0mReceived request to update the puzzle. " +
+    print("\u001B[0m[\u001B[34mReceived request\u001B[0m] to update the puzzle. " +
         `Where puzzle: \u001B[35m${puzzle}\u001B[0m, ` +
         `solution: \u001B[35m${solution}\u001B[0m, ` +
         `and with key: \u001B[35m${key}\u001B[0m. ` +
@@ -55,13 +57,18 @@ app.post(documentation.paths[1].path, (request, response) => {
     );
     
     try { Puzzle.set(puzzle, solution, key); } catch (error) { 
+        print("\u001B[0m[\u001B[31mRequest denied\u001B[0m] : puzzle not updated");
         if (error.message.includes("key")) response.status(httpStatusCodes.unauthorised);
         else response.status(httpStatusCodes.serverError);
-        response.send(`An error occurred: ${error.message}`);
+        response.send(`An error occurred updating the puzzle. You can close this tab.`);
         return;
     }
 
-    response.status(httpStatusCodes.ok).send("puzzle updated successfully!");
+    print("\u001B[0m[\u001B[32mRequest approved\u001B[0m] : puzzle updated");
+    response.status(httpStatusCodes.ok).send(
+        `puzzle updated successfully to puzzle: ${puzzle} with solution: ${solution}, using the key: ${key}. ` +
+        `You can close this tab.`
+    );
 });
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -69,3 +76,8 @@ app.post(documentation.paths[1].path, (request, response) => {
 const port = (3001);
 app.listen(port);
 print(`\u001B[0mRunning on \u001B[33mhttp://localhost:${port}\u001B[0m.`)    
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+const rl = readline.createInterface({ input: process.stdin, /* output: process.stdout */ });
+rl.on('line', (input) => handleMessage(input));
