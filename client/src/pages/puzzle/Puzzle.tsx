@@ -3,7 +3,7 @@ import { contactURL } from "../../assets/constants";
 import "./puzzle.css";
 import axios from "axios";
 import server from "../../assets/server";
-import JsxParser from "react-jsx-parser";
+// import JsxParser from "react-jsx-parser";
 
 /**
  * The basic text to display when visiting this page.

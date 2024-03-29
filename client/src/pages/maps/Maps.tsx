@@ -30,7 +30,7 @@ interface BackendCoordinateRequestResult {
  */
 function getMap(data:BackendCoordinateRequestResult) {
     
-    const now:Date = new Date(); // use this to detect how small the circle should be.
+    // const now:Date = new Date(); // use this to detect how small the circle should be.
 
     return ( 
         // TODO : @Leo use the google maps API to create a map here.
