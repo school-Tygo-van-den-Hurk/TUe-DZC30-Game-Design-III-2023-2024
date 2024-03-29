@@ -1,0 +1,14 @@
+version: "3.4"
+services:
+  vite_docker:
+    image: node:latest
+    container_name: gamedesign3.school.tygo.van.den.hurk.dev-vite
+    entrypoint: /bin/sh
+    ports:
+      - 8000:8000
+    working_dir: /srv/app
+    volumes:
+      - type: bind
+        source: ./
+        target: /srv/app
+    tty: true
