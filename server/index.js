@@ -1,22 +1,23 @@
 "use strict"; //! @Eryk do not touch this file unless absolutely needed.
 
 import getLocation from "./maps.js";
-import express, { response } from "express";
+import express from "express";
 import cors from "cors";
 import print from "./Printer.js";
 import Puzzle from "./puzzle.js";
+import bodyParser from "body-parser";
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 const app = express();
 app.use(cors())
+app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.json());
 app.use((request, _response, next) => {
-    
-    const clientIP = (request.ip || request.connection.remoteAddress);
-    const path = (request.path);
-
-    print(`Got request from \"${clientIP}\" for \"${path}\".`);
-
+    print(
+        `Got a \u001B[0m\u001B[32m${request.method}\u001B[0m request ` +
+        `from \u001B[0m\u001B[34m${request.ip}\u001B[0m ` +
+        `for \u001B[0m\u001B[33m${request.path}\u001B[0m.`);
     next();
 });
 
@@ -24,6 +25,8 @@ app.use((request, _response, next) => {
 const httpStatusCodes = {
     ok:200,
     notFound:404,
+    unauthorised:403,
+    serverError:500,
 };
 
 const documentation = {
@@ -39,12 +42,30 @@ app.get("/", (_request, response) => response.status(httpStatusCodes.notFound).s
 
 //// app.get("/favicon.ico", (_request, response) => response.sendFile(path.join(".", "")));
 
-app.get(documentation.paths[0].path, (_request, response) => response.status(httpStatusCodes.ok).json(getLocation()) );
-app.get(documentation.paths[1].path, (_request, response) => response.status(httpStatusCodes.ok).json(Puzzle.get()) );
+app.get(documentation.paths[0].path,  (_request, response) => response.status(httpStatusCodes.ok).json(getLocation()) );
+app.get(documentation.paths[1].path,  (_request, response) => response.status(httpStatusCodes.ok).json(Puzzle.get()) );
+app.post(documentation.paths[1].path, (request, response) => {
+    
+    const { puzzle, solution, key, } = request.body;
+    print("\u001B[0mReceived request to update the puzzle. " +
+        `Where puzzle: \u001B[35m${puzzle}\u001B[0m, ` +
+        `solution: \u001B[35m${solution}\u001B[0m, ` +
+        `and with key: \u001B[35m${key}\u001B[0m. ` +
+        `Now attempting to update puzzle.`
+    );
+    
+    try { Puzzle.set(puzzle, solution, key); } catch (error) { 
+        if (error.message.includes("key")) response.status(httpStatusCodes.unauthorised);
+        else response.status(httpStatusCodes.serverError);
+        response.send(`An error occurred: ${error.message}`);
+        return;
+    }
+
+    response.status(httpStatusCodes.ok).send("puzzle updated successfully!");
+});
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 const port = (3001);
 app.listen(port);
-print(`running on http://localhost:${port}`)    
-
+print(`\u001B[0mRunning on \u001B[33mhttp://localhost:${port}\u001B[0m.`)    
