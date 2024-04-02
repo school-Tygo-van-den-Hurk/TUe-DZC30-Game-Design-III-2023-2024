@@ -12,6 +12,7 @@
 }
 :root {
   --accent-color: #5550b7;
+  --border-radius: 15px;
   --background-background-color-dark: #000000;
   --background-color-dark: #303030;
   --title-color-dark: #FFFFFF;
@@ -92,9 +93,6 @@ html .App {
   border-bottom: none;
   display: grid;
   grid-template-rows: auto 1fr auto;
-}
-html .App main {
-  padding: 0 20% 3rem 20%;
 }
 html .App header, html .App footer {
   background-color: var(--layer-0);
@@ -181,15 +179,8 @@ a:hover {
   text-decoration: underline;
 }
 
-div.map-container {
-  aspect-ratio: 1/1;
-  background-color: #808080;
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-}
-
-.bordered, .failed, .loading, .success, div.map-container {
-  border-radius: 15px;
+.bordered, .failed, .loading, .success {
+  border-radius: var(--border-radius);
   border-width: 3px;
   border-style: solid;
   margin: 2em auto;

@@ -18,6 +18,7 @@
   
 :root {
     --accent-color: #5550b7;
+    --border-radius: 15px;
     
     // Variables related to colors and styling
     --background-background-color-dark: #000000;
@@ -107,9 +108,11 @@ html {
         display: grid;
         grid-template-rows: auto 1fr auto;
     
-        main {
-            padding: 0 20% 3rem 20%;
-        }
+        // main {
+        //     * {
+        //         padding: 0 20% 3rem 20%;
+        //     }
+        // }
     
         header, footer {
             background-color: var(--layer-0);
@@ -220,17 +223,8 @@ a {
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ STYLING THE HTML ELEMENTS ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
-div.map-container {
-    @extend .bordered;
-
-    aspect-ratio: 1/1;
-    background-color: #808080;
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-}
-
 .bordered {
-    border-radius: 15px;
+    border-radius: var(--border-radius);
     border-width: 3px;
     border-style: solid;
     margin: 2em auto;

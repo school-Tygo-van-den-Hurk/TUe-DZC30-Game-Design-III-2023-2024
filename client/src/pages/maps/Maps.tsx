@@ -1,24 +1,53 @@
-// TODO : @Leo create a map in the `getMap` function. that create a circle around where the treasure might be.
-
 import "./Maps.css"; 
 import axios from 'axios';
 import useSWR from 'swr';
 import server from "../../assets/server";
-// import dotenv from "dotenv";
-// import process from "process";
+import GoogleMap, { GoogleMapProps } from "../../assets/GoogleMap/GoogleMap";
 
-// dotenv.config();
-// const GOOGLE_MAPS_API_KEY = (process.env?.GOOGLE_MAPS_API_KEY);
+// TODO REMOVE WHEN AN ACTUAL IMPLEMENTATION IS HERE
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+// # BEGIN TODO : remove when you have an actual implementation
+function getTempProps(_data:BackendCoordinateRequestResult) { 
+        
+    const marker = ({ 
+        color:"#00FF00",
+        position:{ lat:51.44904336679616, lng:5.487273789974496 }
+    });
+
+    const circle = {
+        options: { 
+            strokeColor:"#00FF00",         
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: "#FF0000",
+            fillOpacity: 0.35,
+        },
+        radius:4000,
+        center:{ lat:51.44904336679616, lng:5.487273789974496 }
+    }
+
+    const props:GoogleMapProps = {
+        apiKey:"AIzaSyCJET1X_nGd5nsC1RLv1YTUWFg9HPkAjxQ", 
+        map: {
+            position:{
+                lat: 51.448555556, //// data.coordinates.lat, 
+                lng: 5.489083333   ////data.coordinates.lon
+            }
+        },
+        marker:marker,
+        circle:circle 
+    }
+
+    return (props);
+}
+// # END TODO
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 const path = "maps";
 
 interface BackendCoordinateRequestResult {
-    coordinates:{ lat:number, lon:number }
-    lastSolved:{ 
-        year:number,
-        month:number,
-        day:number
-    }
+    coordinates:{ lat:number, lng:number }
+    lastSolved:string
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -29,21 +58,13 @@ interface BackendCoordinateRequestResult {
  * @returns 
  */
 function getMap(data:BackendCoordinateRequestResult) {
-    
-    // const now:Date = new Date(); // use this to detect how small the circle should be.
 
     return ( 
         // TODO : @Leo use the google maps API to create a map here.
         // Search for terms 'node js', 'google maps API', and 'react' for better results.
-        <>
-            <div className="map-container layer-0">
-                <p style={{color:"var(--accent-color)", paddingTop:"45%"}}>
-                    This is a placeholder for the map... <br/>
-                    ({data.coordinates.lat}, {data.coordinates.lon})
-                    {/* {GOOGLE_MAPS_API_KEY} */}
-                </p>
-            </div>
-        </>
+        <div className="map-container layer-0" >
+            <GoogleMap {...getTempProps(data)}/>
+        </div>
     );
 }
 
@@ -101,6 +122,7 @@ function Maps() {
         <>
             {success(data)}
             {getTextAndTitle()}
+            {getMap(data)}
         </>
     );
 }
@@ -119,7 +141,6 @@ function success(data:BackendCoordinateRequestResult) {
                 The coordinates are latitude: {data.coordinates.lat}, and longitude: {data.coordinates.lon}. 
                 this will be removed when we launch the website.
             </p>
-            {getMap(data)}
         </>
     );  
 }
