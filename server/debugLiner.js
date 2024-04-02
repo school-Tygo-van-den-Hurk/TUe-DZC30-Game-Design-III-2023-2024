@@ -1,7 +1,7 @@
 "use strict"; //! @Eryk do not touch this file unless absolutely needed.
 
 import print from './Printer.js';
-import Puzzle from './puzzle.js';
+import Puzzle, { writeJSON } from './puzzle.js';
 
 /**
  * Handels text typed in the terminal.
@@ -77,7 +77,11 @@ function puzzle(args) {
             case "d":
             case "date": print(
                 `\u001B[33mPuzzle.date\u001B[0m: ${
-                    (Puzzle.lastChange)?(`\u001B[35m${Puzzle.lastChange}`):(`\u001B[31m${Puzzle.lastChange}`)
+                    (Puzzle.lastChange)?(`\u001B[35m${
+                        new Date(Puzzle.lastChange).toISOString()
+                    }`):(`\u001B[31m${
+                        new Date(Puzzle.lastChange).toISOString()
+                    }`)
                 }\u001B[0m`); break;
             case "-h": 
             case "--help": print(
@@ -108,7 +112,7 @@ function puzzle(args) {
                     "Type\u001B[34m puzzle\u001B[35m set\u001B[33m --help\u001B[0m to learn."
                 );
                 return;}
-            sentence = (sentence.substring(1, sentence.length - 1).trip());
+            sentence = ((sentence.substring(1, sentence.length - 1)).trim());
             return (sentence);
         }
 
@@ -125,22 +129,58 @@ function puzzle(args) {
 
         const subcommand = (`${args.shift()}`.toLowerCase());
         switch(subcommand) {
-            case "puzzle": print(
-                `\u001B[33m Puzzle.puzzle\u001B[0m: ${
-                    (Puzzle.puzzle)?(`\u001B[35m${Puzzle.puzzle}`):(`\u001B[31m${Puzzle.puzzle}`)
-                }\u001B[0m`); break;
-            case "solution": print(
-                `\u001B[33mPuzzle.solution\u001B[0m: ${
-                    (Puzzle.solution)?(`\u001B[35m${Puzzle.solution}`):(`\u001B[31m${Puzzle.solution}`)
-                }\u001B[0m`); break;
-            case "key": print(
-                `\u001B[33mPuzzle.key\u001B[0m: ${
-                    (Puzzle.key)?(`\u001B[35m${Puzzle.key}`):(`\u001B[31m${Puzzle.key}`)
-                }\u001B[0m`); break;
-            case "date": print(
-                `\u001B[33mPuzzle.date\u001B[0m: ${
-                    (Puzzle.lastChange)?(`\u001B[35m${Puzzle.lastChange}`):(`\u001B[31m${Puzzle.lastChange}`)
-                }\u001B[0m`); break;
+            case "p": 
+            case "puzzle": 
+                print(
+                    `before: \u001B[33m Puzzle.puzzle\u001B[0m: ${
+                        (Puzzle.puzzle)?(`\u001B[35m${Puzzle.puzzle}`):(`\u001B[31m${Puzzle.puzzle}`)
+                    }\u001B[0m`); 
+                Puzzle.initialise(getValue(args), false, false, false);
+                writeJSON(Puzzle.puzzle, Puzzle.solution, Puzzle.key, Puzzle.date);
+                print(
+                    `after:  \u001B[33m Puzzle.puzzle\u001B[0m: ${
+                        (Puzzle.puzzle)?(`\u001B[35m${Puzzle.puzzle}`):(`\u001B[31m${Puzzle.puzzle}`)
+                    }\u001B[0m`); 
+                break;
+            case "s": 
+            case "solution": 
+                print(
+                    `before: \u001B[33m Puzzle.solution\u001B[0m: ${
+                        (Puzzle.solution)?(`\u001B[35m${Puzzle.solution}`):(`\u001B[31m${Puzzle.solution}`)
+                    }\u001B[0m`); 
+                Puzzle.initialise(false, getValue(args), false, false);
+                writeJSON(Puzzle.puzzle, Puzzle.solution, Puzzle.key, Puzzle.date);
+                print(
+                    `after:  \u001B[33m Puzzle.solution\u001B[0m: ${
+                        (Puzzle.solution)?(`\u001B[35m${Puzzle.solution}`):(`\u001B[31m${Puzzle.solution}`)
+                    }\u001B[0m`); 
+                break;
+            case "k": 
+            case "key": 
+                print(
+                    `before: \u001B[33m Puzzle.key\u001B[0m: ${
+                        (Puzzle.key)?(`\u001B[35m${Puzzle.key}`):(`\u001B[31m${Puzzle.key}`)
+                    }\u001B[0m`); 
+                Puzzle.initialise(false, false, getValue(args), false);
+                writeJSON(Puzzle.puzzle, Puzzle.solution, Puzzle.key, Puzzle.date);
+                print(
+                    `after:  \u001B[33m Puzzle.key\u001B[0m: ${
+                        (Puzzle.key)?(`\u001B[35m${Puzzle.key}`):(`\u001B[31m${Puzzle.key}`)
+                    }\u001B[0m`); 
+                break;
+            case "d": 
+            case "date":                 
+                print(
+                    `before: \u001B[33m Puzzle.lastChange\u001B[0m: ${
+                        (Puzzle.lastChange)?(`\u001B[35m${Puzzle.lastChange}`):(`\u001B[31m${Puzzle.lastChange}`)
+                    }\u001B[0m`);
+                Puzzle.initialise(false, false, false, new Date(getValue(args))); 
+                writeJSON(Puzzle.puzzle, Puzzle.solution, Puzzle.key, Puzzle.date);
+                print(
+                    `after:  \u001B[33m Puzzle.lastChange\u001B[0m: ${
+                        (Puzzle.lastChange)?(`\u001B[35m${Puzzle.lastChange}`):(`\u001B[31m${Puzzle.lastChange}`)
+                    }\u001B[0m`); 
+                break;
             case "-h":
             case "--help": print(
                 "\u001B[32mPUZZLE HELP\n\u001B[0m" +

@@ -109,32 +109,32 @@ export default class Puzzle {
         if (puzzle) {
             this.puzzle = puzzle;
             print(
-                `\u001B[0m\u001B[32mSucces\u001B[0m updated ` +
-                `\u001B[33mPuzzle.puzzle\u001B[0m to \u001B[35m${puzzle}\u001B[0m`
+                `\u001B[0m\u001B[32mSucces\u001B[0m initialised ` +
+                `\u001B[33mPuzzle.puzzle\u001B[0m as \u001B[35m${puzzle}\u001B[0m`
             );
         }
 
         if (solution) {
             this.solution = solution;
             print(
-                `\u001B[0m\u001B[32mSucces\u001B[0m updated ` +
-                `\u001B[33mPuzzle.solution\u001B[0m to \u001B[35m${solution}\u001B[0m`
+                `\u001B[0m\u001B[32mSucces\u001B[0m initialised ` +
+                `\u001B[33mPuzzle.solution\u001B[0m as \u001B[35m${solution}\u001B[0m`
             );
         }
         
         if (key) {
             this.key = key;
             print(
-                `\u001B[0m\u001B[32mSucces\u001B[0m updated ` +
-                `\u001B[33mPuzzle.key\u001B[0m to \u001B[35m${key}\u001B[0m`
+                `\u001B[0m\u001B[32mSucces\u001B[0m initialised ` +
+                `\u001B[33mPuzzle.key\u001B[0m as \u001B[35m${key}\u001B[0m`
             );
         }
         
         if (date) {
             this.lastChange = date;
             print(
-                `\u001B[0m\u001B[32mSucces\u001B[0m updated `+
-                `\u001B[33mPuzzle.lastChange\u001B[0m to \u001B[35m${date}\u001B[0m`
+                `\u001B[0m\u001B[32mSucces\u001B[0m initialised `+
+                `\u001B[33mPuzzle.lastChange\u001B[0m as \u001B[35m${date}\u001B[0m`
             );
         }
     }
@@ -145,19 +145,21 @@ export default class Puzzle {
  * @param { string } puzzle the puzzle itself
  * @param { string } solution the solution to the puzzle
  * @param { string } key the key to updating the puzzle
- * @param { string } date the date which the puzzle was last updated
+ * @param { Date } date the date which the puzzle was last updated
  */
-function writeJSON(puzzle, solution, key, date) {
+export function writeJSON(puzzle, solution, key, date) {
     
     try {
 
-        const time = (new Date(date).toISOString());//// .toISOString()
+        
         const puzzleAsObject = ({
             puzzle:puzzle,
             solution:solution,
             key:key,
-            date:time
+            date:(new Date(date).toISOString())
         });
+        print("puzzleAsObject: ", puzzleAsObject, "");
+        print("");
 
         fs.writeFileSync(filePath, JSON.stringify(puzzleAsObject), 'utf8', (error) => {
             if (error) print("\u001B[0m\u001B[31mError\u001B[0m updating puzzle file: "+error.message);
