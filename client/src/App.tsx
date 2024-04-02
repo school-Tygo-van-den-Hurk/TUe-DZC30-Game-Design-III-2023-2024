@@ -7,6 +7,7 @@ import Puzzle from './pages/puzzle/Puzzle';
 import Lore from './pages/lore/Lore';
 import About from './pages/about/About';
 import { contactURL, repositoryURL } from './assets/constants';
+import NotFound from './assets/NotFound/NotFound';
 
 function NavLink(props: { to: string; children: React.ReactNode; }) {
     const { pathname } = useLocation();
@@ -47,11 +48,12 @@ function App() {
             </header>
             <main>
                 <Routes>
-                    <Route path="/"       element={ <Home/>   } />
-                    <Route path="/maps"   element={ <Maps/>   } />
-                    <Route path="/puzzle" element={ <Puzzle/> } />
-                    <Route path="/lore"   element={ <Lore/>   } />
-                    <Route path="/about"  element={ <About/>  } />
+                    <Route path="/"       element={ <Home/>      } />
+                    <Route path="/maps"   element={ <Maps/>      } />
+                    <Route path="/puzzle" element={ <Puzzle/>    } />
+                    <Route path="/lore"   element={ <Lore/>      } />
+                    <Route path="/about"  element={ <About/>     } />
+                    <Route path="*"       element={ <NotFound/>  }/>
                 </Routes> 
             </main>
             <footer>

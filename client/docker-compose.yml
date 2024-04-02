@@ -1,14 +1,21 @@
 version: "3.8"
 
 services:
-    vite_docker:
-        image: sth123/gamedesign3frontend:v0.8.0
-        container_name: gamedesign3.school.tygo.van.den.hurk.dev-vite
-        restart: always
-        entrypoint: /bin/sh
-        ports:
-          - 4173:4173
-        working_dir: /srv/app
-        volumes:
-          - ./:/srv/app
-        tty: true
+  vite_docker:
+    container_name: gamedesign3.school.tygo.van.den.hurk.dev-vite
+    image: sth123/gamedesign3frontend:v0.8.0
+    restart: always
+    entrypoint: /bin/sh
+    networks:
+      - 'proxymesh'
+      - 'default'
+    ports:
+      - 4173:4173
+    working_dir: /srv/app
+    volumes:
+      - ./:/srv/app
+    tty: true
+
+networks:
+  proxymesh:
+    external: true

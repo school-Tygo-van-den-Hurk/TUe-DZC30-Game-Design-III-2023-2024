@@ -1,4 +1,3 @@
-// TODO : @Leo add some text to the home page saying what this is, and how to play, etc etc the more the better.
 import "./home.css"
 
 function Home() {

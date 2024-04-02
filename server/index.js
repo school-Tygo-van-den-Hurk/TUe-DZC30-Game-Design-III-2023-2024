@@ -15,6 +15,7 @@ const app = express();
 app.use(cors())
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(bodyParser.json());
+app.use(express.static("public"))
 app.use((request, _response, next) => {
     print(
         `Got a \u001B[0m\u001B[32m${request.method}\u001B[0m request ` +
@@ -41,6 +42,7 @@ const documentation = {
 
 const defaultResponse = (`Go to: ${documentation.paths.map((element) => `\"${element.path}\" for ${element.use}`).join(", ")}.`);
 app.get("/", (_request, response) => response.status(httpStatusCodes.notFound).send(defaultResponse));
+//// app.get("/favicon.ico", (_request, response) => response.status(httpStatusCodes.ok).sendFile(`favicon.ico`));
 
 //// app.get("/favicon.ico", (_request, response) => response.sendFile(path.join(".", "")));
 

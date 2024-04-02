@@ -1,5 +1,3 @@
-// TODO : @Leo add some lore.
-
 import "./lore.css";
 
 function Lore() {
