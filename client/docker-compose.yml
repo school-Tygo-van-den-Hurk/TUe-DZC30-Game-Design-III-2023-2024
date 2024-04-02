@@ -4,7 +4,8 @@ services:
     vite_docker:
         image: sth123/gamedesign3frontend:v0.8.0
         container_name: gamedesign3.school.tygo.van.den.hurk.dev-vite
-        # entrypoint: /bin/sh
+        restart: always
+        entrypoint: /bin/sh
         ports:
           - 4173:4173
         working_dir: /srv/app

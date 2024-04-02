@@ -1,4 +1,7 @@
-FROM --platform=${BUILDPLATFORM} node:latest AS build
+# Run the following command:
+#   docker build . -t "sth123/gamedesign3frontend:v${VERSION_GOES_HERE}"
+
+FROM arm64v8/node:latest AS build
 WORKDIR /app
 COPY package.json .
 RUN npm install
