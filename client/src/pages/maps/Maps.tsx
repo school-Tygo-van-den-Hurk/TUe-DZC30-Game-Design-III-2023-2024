@@ -1,8 +1,9 @@
-import "./Maps.css"; 
+import GoogleMap, { GoogleMapProps } from "../../assets/GoogleMap/GoogleMap";
+import server from "../../assets/server";
 import axios from 'axios';
 import useSWR from 'swr';
-import server from "../../assets/server";
-import GoogleMap, { GoogleMapProps } from "../../assets/GoogleMap/GoogleMap";
+import "./Maps.css"; 
+import { isDevEnv } from "../../assets/constants";
 
 // TODO REMOVE WHEN AN ACTUAL IMPLEMENTATION IS HERE
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -134,13 +135,19 @@ function Maps() {
  * @returns the HTML on a successful load.
  */
 function success(data:BackendCoordinateRequestResult) {
+
+    const message = ( 
+        (isDevEnv)
+        ? (
+            <p> 
+                The coordinates are latitude: {data.coordinates.lat}, and longitude: {data.coordinates.lng}. 
+                this is only visible in development mode.
+            </p>
+        ) : (<></>) );
     return (
         <>
             <p className="success"> The coordinates loaded successfully. </p>
-            <p> 
-                The coordinates are latitude: {data.coordinates.lat}, and longitude: {data.coordinates.lon}. 
-                this will be removed when we launch the website.
-            </p>
+            {message}
         </>
     );  
 }

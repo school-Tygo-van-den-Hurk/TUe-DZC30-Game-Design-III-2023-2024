@@ -1,4 +1,4 @@
-import "./home.css"
+import "./home.css";
 
 function Home() {
     return (
@@ -7,9 +7,9 @@ function Home() {
             <p>
                 Welcome Pirates! Ready for an adventure?
             </p>
-            
             <h2> Purpose & Trust </h2>
-            <p> This very treasure hunt was constructed for the course Design for games & play III; 
+            <p> 
+                This very treasure hunt was constructed for the course Design for games & play III; 
                 playful interactions (DZC30). The aim was to create a playful interaction relating 
                 to trust, which takes place on the TU/e campus. The element of trust can be viewed 
                 from many different angles in game design and playful interactions, but in this 
@@ -24,17 +24,16 @@ function Home() {
                     can find the treasure. 
                 </li>
             </ol>
-
-            <h3> Rules </h3>
+            <h2> Rules </h2>
             <ol>
                 <li><b>Only</b> hide the treasure on the TU/e campus.</li>
                 <li>To take the treasure one must put something back (nothing is ever truly free).</li>
                 <li>Clues can be difficult to crack, but should be doable and sensible.</li>
                 <li><b>Have Fun!</b></li>
             </ol>
-
-            <h4> Guide </h4>
-            <p> The website is split into 5 different pages: Home, Puzzle, Map, Lore and About.
+            <h2> Guide </h2>
+            <p> 
+                The website is split into 5 different pages: Home, Puzzle, Map, Lore and About.
                 Home: provides the purpose and rules, behind the treasure hunt. 
                 Puzzle: provides the clue from your fellow pirate, of where the treasure currently lies.
                 Map: provides a map, with a radius showing the area where the treasure lies. 

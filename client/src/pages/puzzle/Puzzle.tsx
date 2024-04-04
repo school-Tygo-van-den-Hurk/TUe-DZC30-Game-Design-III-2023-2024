@@ -55,10 +55,13 @@ function Puzzle() {
         </>
     );
 
-    
+    const date = (`${data.lastChange.year}-${data.lastChange.month}-${data.lastChange.day}.`);
     const puzzleSolvedText = (
         (data.lastChange)
-        ? (<p>{`Last solved on: ${data.lastChange.year}-${data.lastChange.month}-${data.lastChange.day}.`}</p>)
+        ? (
+            <p>
+                <b> Last solved on </b> : <i> {date} </i>
+            </p>)
         : (<></>)
     );
 

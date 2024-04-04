@@ -7,3 +7,5 @@ export const urlRuben = "#";
 export const urlEryk  = "#";
 
 export const isDevEnv = import.meta.env.DEV //// true //// ((process.env.DEV) && (process.env.DEV  === "true"));
+
+export const decommissioned = false; // TODO : set to true when the course is over.
