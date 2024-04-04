@@ -98,6 +98,9 @@ html .App header, html .App footer {
   background-color: var(--layer-0);
   padding: 1em 10vw;
 }
+html .App footer {
+  margin-top: 3em;
+}
 html .App footer img {
   display: none;
 }
