@@ -1,0 +1,102 @@
+// In this file, we'll define all the constants within the root object.
+
+@import url("./fonts.css");
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ VARIABLES ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+:root { // Store them in the root
+    /* default width */
+        --content-width: 80%;
+        --max-content-width: 60em;
+        --line-after-title-width: 50px;
+    /* borders */
+        --border-radius: 10px;
+        --border-width: 1px;
+    /* Margins */
+        --default-top-margin: 1em;
+        --default-left-margin: auto;
+        --default-right-margin: auto;
+    /* text */
+        --text-font-size: 14px;
+        --text-alignment: center;
+        --text-alignment: center;
+        --text-font: "Lora";
+    /* title */
+        //// --title-font-size-max: calc(2 * var(--text-font-size));
+        //// --title-font-size-scaler: calc(var(--text-font-size) / 4);
+        //// --title-font: 'Old Standard TT', serif;
+    /* list styles */
+        --list-styles: none;
+} 
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ VARIABLES : COLOR ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+:root {
+    --light-mode-accent-color: #33306d;
+    --light-mode-sec-accent-color: var(--light-mode-accent-color);
+    --light-mode-body-background-color: #fcf7fe;
+    --light-mode-main-background-color: var(--light-mode-body-background-color);
+    --light-mode-layer-0-background-color: #F3F0F6;
+    --light-mode-layer-1-background-color: #e8e6ed;
+    --light-mode-layer-2-background-color: #D1D1DB;
+    --light-mode-border-color: #707070;
+    --light-mode-title-color: #03030e;
+    --light-mode-text-color: #707070;
+    --light-mode-shadow-color: #343C3F;
+    // ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ ~ //
+    --dark-mode-accent-color: #5550b7;
+    --dark-mode-sec-accent-color: var(--dark-mode-accent-color);
+    --dark-mode-body-background-color: #0e1112;
+    --dark-mode-main-background-color: var(--dark-mode-body-background-color);
+    --dark-mode-layer-0-background-color: #1D2226;
+    --dark-mode-layer-1-background-color: #343C3F;
+    --dark-mode-layer-2-background-color: #4D585C;
+    --dark-mode-border-color: #909090;
+    --dark-mode-title-color: #fcf7fe;
+    --dark-mode-text-color: #909090;
+    --dark-mode-shadow-color: #909090;
+}
+
+:root { //~ DEFAULT IS LIGHT MODE, if the browser does not support the `prefers-color-scheme` media query.
+    --accent-color:                var(--light-mode-accent-color);
+    --sec-accent-color:            var(--light-mode-sec-accent-color);
+    --body-background-color:       var(--light-mode-body-background-color);
+    --main-background-color:       var(--light-mode-main-background-color);
+    --layer-0-background-color:    var(--light-mode-layer-0-background-color);
+    --layer-1-background-color:    var(--light-mode-layer-1-background-color);
+    --layer-2-background-color:    var(--light-mode-layer-2-background-color);
+    --border-color:                var(--light-mode-border-color);
+    --title-color:                 var(--light-mode-title-color);
+    --text-color:                  var(--light-mode-text-color);
+    --shadow-color:                var(--light-mode-shadow-color);
+}
+
+@media (prefers-color-scheme: light) {
+    :root {
+        --accent-color: var(--light-mode-accent-color);
+        --sec-accent-color: var(--light-mode-sec-accent-color);
+        --body-background-color: var(--light-mode-body-background-color);
+        --main-background-color: var(--light-mode-main-background-color);
+        --layer-0-background-color: var(--light-mode-layer-0-background-color);
+        --layer-1-background-color: var(--light-mode-layer-1-background-color);
+        --layer-2-background-color: var(--light-mode-layer-2-background-color);
+        --border-color: var(--light-mode-border-color);
+        --title-color: var(--light-mode-title-color);
+        --text-color: var(--light-mode-text-color);
+        --shadow-color: var(--light-mode-shadow-color);
+    }
+}
+@media (prefers-color-scheme: dark) {
+    :root {
+        --accent-color: var(--dark-mode-accent-color);
+        --sec-accent-color: var(--dark-mode-sec-accent-color);
+        --body-background-color: var(--dark-mode-body-background-color);
+        --main-background-color: var(--dark-mode-main-background-color);
+        --layer-0-background-color: var(--dark-mode-layer-0-background-color);
+        --layer-1-background-color: var(--dark-mode-layer-1-background-color);
+        --layer-2-background-color: var(--dark-mode-layer-2-background-color);
+        --border-color: var(--dark-mode-border-color);
+        --title-color: var(--dark-mode-title-color);
+        --text-color: var(--dark-mode-text-color);
+        --shadow-color: var(--dark-mode-shadow-color);
+    }
+}

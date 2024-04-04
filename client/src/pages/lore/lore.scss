@@ -1,4 +1,37 @@
-.image-container {
-     margin: 3rem auto 0 auto;
-    * { width: 100%; }
+figure.image-container {
+
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    // Size : width, Height
+    width: var(--content-width) !important;
+    max-width: 20em !important; //// var(--max-content-width);
+    // Spacing : Margin, Padding
+    margin-top: calc( 2 * var(--default-top-margin));
+    margin-bottom: var(--default-top-margin);
+    // Border : style, color, width, radius
+    // Rendering : Display, Position, 
+    // Other
+        
+    img {
+
+        // Text : Color, Font-Family, Font-Size, Alignment, Background
+        // Size : width, Height
+        width: 100%;
+        height: fit-content;
+        // Spacing : Margin, Padding
+        // Border : style, color, width, radius
+        // Rendering : Display, Position, 
+        // Other
+    }
+
+    figcaption {
+
+        // Text : Color, Font-Family, Font-Size, Alignment, Background
+        color: var(--title-color);
+        // Size : width, Height
+        // Spacing : Margin, Padding
+        margin-top: var(--default-top-margin);
+        // Border : style, color, width, radius
+        // Rendering : Display, Position, 
+        // Other
+    }
 }

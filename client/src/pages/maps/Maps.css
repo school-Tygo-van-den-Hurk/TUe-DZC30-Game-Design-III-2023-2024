@@ -1,9 +1,1 @@
-.map-container {
-  border-radius: var(--border-radius);
-  margin-top: 3rem;
-  margin-bottom: 3rem;
-  height: 90vh;
-  width: 90vw;
-  margin-left: auto;
-  margin-right: auto;
-}
+.map-container{width:80% !important;margin-top:var(--default-top-margin);aspect-ratio:1/1}

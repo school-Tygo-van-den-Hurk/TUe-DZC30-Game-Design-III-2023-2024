@@ -1,11 +1,5 @@
 .map-container {
-    border-radius: var(--border-radius);
-    margin-top: 3rem;
-    margin-bottom: 3rem;
-
-    //// aspect-ratio: 1/1;
-    height: 90vh;
-    width: 90vw;
-    margin-left: auto;
-    margin-right: auto;
+    width: 80% !important;
+    margin-top: var(--default-top-margin);
+    aspect-ratio: 1/1;
 }

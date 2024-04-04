@@ -1,6 +1,1 @@
-.image-container {
-  margin: 3rem auto 0 auto;
-}
-.image-container * {
-  width: 100%;
-}
+figure.image-container{width:var(--content-width) !important;max-width:20em !important;margin-top:calc(2*var(--default-top-margin));margin-bottom:var(--default-top-margin)}figure.image-container img{width:100%;height:-moz-fit-content;height:fit-content}figure.image-container figcaption{color:var(--title-color);margin-top:var(--default-top-margin)}

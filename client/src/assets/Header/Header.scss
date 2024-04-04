@@ -1,0 +1,133 @@
+.navbar-icon { aspect-ratio: 1/1; }
+.navbar-icon-container { display: none; }
+
+header{ 
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    background-color: var(--layer-0-background-color);
+    // Size : width, Height
+    width   : 100%;
+    height  : fit-content;
+    // Spacing : Margin, Padding
+    padding: 2em 10vw;
+    // Border : style, color, width, radius
+    // Rendering : Display, Position, 
+    // Other
+    
+    nav#navbar {
+    
+        // Text : Color, Font-Family, Font-Size, Alignment, Background
+        // Size : width, Height
+        width      : 100%;
+        max-width  : var(--max-content-width);
+        height     : fit-content;
+        // Spacing : Margin, Padding
+        padding    : 0;
+        margin     : auto;
+        // Border : style, color, width, radius
+        // Rendering : Display, Position, 
+        // Other
+        
+        ul#navbar-links {
+
+            // Text : Color, Font-Family, Font-Size, Alignment, Background
+            // Size : width, Height
+            width   : 100%;
+            height  : fit-content;
+            // Spacing : Margin, Padding
+            padding : 0;
+            margin  : auto;
+            // Border : style, color, width, radius
+            // Rendering : Display, Position, 
+            display: grid;
+            // Other
+            grid-template-columns: auto auto auto auto auto;
+
+            li.navbar-link {
+                
+                // Text : Color, Font-Family, Font-Size, Alignment, Background
+                color: var(--text-color);
+                // Size : width, Height
+                // Spacing : Margin, Padding
+                // Border : style, color, width, radius
+                // Rendering : Display, Position, 
+                display: inline-block;
+                // Other
+
+                a {
+
+                    // Text : Color, Font-Family, Font-Size, Alignment, Background
+                    color: var(--text-color);
+                    // Size : width, Height
+                    // Spacing : Margin, Padding
+                    // Border : style, color, width, radius
+                    // Rendering : Display, Position, 
+                    display: inline-block;
+                    // Other
+        
+                    &:hover {
+                        
+                        // Text : Color, Font-Family, Font-Size, Alignment, Background
+                        color: var(--accent-color);
+                        // Size : width, Height
+                        // Spacing : Margin, Padding
+                        // Border : style, color, width, radius
+                        // Rendering : Display, Position, 
+                        // Other
+        
+                    }
+        
+                    &.active {
+        
+                        // Text : Color, Font-Family, Font-Size, Alignment, Background
+                        color: var(--title-color);
+                        // Size : width, Height
+                        // Spacing : Margin, Padding
+                        // Border : style, color, width, radius
+                        // Rendering : Display, Position, 
+                        // Other
+                        cursor: default;
+                        text-decoration: none
+                    }
+                }
+            }
+        }
+    
+        div.open-hamburger-img-container {
+            @extend .navbar-icon-container;
+            
+            // Text : Color, Font-Family, Font-Size, Alignment, Background
+            // Size : width, Height
+            // Spacing : Margin, Padding
+            // Border : style, color, width, radius
+            // Rendering : Display, Position, 
+            // Other
+
+            img#open-hamburger {
+                @extend .navbar-icon;
+            }
+        }
+    }
+         
+    div.close-hamburger-img-container {
+        @extend .navbar-icon-container;
+
+        // Text : Color, Font-Family, Font-Size, Alignment, Background
+        // Size : width, Height
+        // Spacing : Margin, Padding
+        // Border : style, color, width, radius
+        // Rendering : Display, Position, 
+        // Other
+
+        img#close-hamburger {
+            @extend .navbar-icon;
+
+            // Text : Color, Font-Family, Font-Size, Alignment, Background
+            // Size : width, Height
+            // Spacing : Margin, Padding
+            // Border : style, color, width, radius
+            // Rendering : Display, Position, 
+            // Other
+
+        }
+    }
+}

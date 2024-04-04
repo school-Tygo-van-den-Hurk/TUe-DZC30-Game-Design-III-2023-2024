@@ -1,0 +1,15 @@
+// In this file, we'll define all the CSS for the fonts.
+
+@font-face {
+    font-family: 'Lora';
+    src: url('/fonts/Lora-VariableFont_wght.ttf') format('truetype');
+    font-weight: 1 1000;
+    font-style: normal; 
+}
+  
+@font-face {
+    font-family: 'Lora';
+    src: url('/fonts/Lora-Italic-VariableFont_wght.ttf') format('truetype');
+    font-weight: 1 1000; 
+    font-style: italic; 
+}

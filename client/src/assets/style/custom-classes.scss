@@ -1,0 +1,66 @@
+*.no-scroll-bar {
+    overflow: -moz-scrollbars-none;
+    -ms-overflow-style: none;
+    scrollbar-width: none; 
+    &>::-webkit-scrollbar { display: none; }
+}
+
+*.hidden { display: none !important; }
+
+*.title {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    color: var(--title-color);
+    // Size : width, Height
+    width: fit-content;
+    height: fit-content;
+    // Spacing : Margin, Padding
+    margin-left: auto;
+    margin-right: auto;
+    // Border : style, color, width, radius
+    border: none;
+    // Rendering : Display, Position, 
+    display: block;
+    // Other
+}
+
+*.first-child-can-have-no-top-margin {
+    & > *:first-child, 
+    & > *:first-child > *:first-child,
+    & > *:first-child > *:first-child > *:first-child,
+    & > *:first-child > *:first-child > *:first-child > *:first-child,
+    & > *:first-child > *:first-child > *:first-child > *:first-child > *:first-child,
+    & > *:first-child > *:first-child > *:first-child > *:first-child > *:first-child > *:first-child,
+    & > *:first-child > *:first-child > *:first-child > *:first-child > *:first-child > *:first-child > *:first-child {
+        margin-top: 0 !important;
+    }
+}
+
+.form-element {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    color: var(--title-color);
+    background-color: var(--layer-0-background-color);
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    margin-top: var(--default-top-margin);
+    margin-left: auto;
+    margin-right: auto;
+    padding: calc( var(--default-top-margin) / 4);
+    // Border : style, color, width, radius
+    border-radius: var(--border-radius);
+    border-color: var(--title-color);
+    border-width: var(--border-width);
+    // Rendering : Display, Position, 
+    // Other
+
+    &:focus {
+        // Text : Color, Font-Family, Font-Size, Alignment, Background
+        color: var(--accent-color);
+        // Size : width, Height
+        // Spacing : Margin, Padding
+        // Border : style, color, width, radius
+        border-color: var(--accent-color);
+        // Rendering : Display, Position, 
+        // Other
+        outline: none; 
+    }
+}

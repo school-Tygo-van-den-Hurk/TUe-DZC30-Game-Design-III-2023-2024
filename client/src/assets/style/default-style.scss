@@ -1,0 +1,211 @@
+// In this file, we'll declare the default styling the app will use.
+
+@use "constants.scss";
+@use "custom-classes.scss";
+
+* { @extend .no-scroll-bar;
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    color       : var( --text-color     );
+    font-family : var( --text-font      );
+    font-size   : var( --text-font-size );
+    text-align  : var( --text-alignment );
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    margin: 0;
+    padding: 0;
+    // Border : style, color, width, radius
+    // Rendering : Display, Position, 
+    display: block;
+    // Other
+    box-sizing: border-box;
+    accent-color: var(--accent-color);
+}
+
+style, script, head { @extend .hidden; }
+
+html {
+    @extend .first-child-can-have-no-top-margin;
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    background-color: var(--body-background-color);
+    // Size : width, Height
+    width   : 100vw;
+    height  : 100vh;
+    // Spacing : Margin, Padding
+    margin  : 0;
+    padding : 0;
+    // Border : style, color, width, radius
+    border  : none;
+    // Rendering : Display, Position, 
+    display : block;
+    // Other
+
+    & > body {
+        @extend .first-child-can-have-no-top-margin;
+        // Text : Color, Font-Family, Font-Size, Alignment, Background
+        background-color: var(--body-background-color);
+        // Size : width, Height
+        width   : 100%;
+        height  : 100%;
+        // Spacing : Margin, Padding
+        // Border : style, color, width, radius
+        // Rendering : Display, Position, 
+        // Other
+        display : block;
+
+        *#root {
+            @extend .first-child-can-have-no-top-margin;
+            // Text : Color, Font-Family, Font-Size, Alignment, Background
+            // Size : width, Height
+            width   : 100%;
+            height  : 100%;
+            // Spacing : Margin, Padding
+            margin  : 0; 
+            // Border : style, color, width, radius
+            // Rendering : Display, Position, 
+            display : grid;
+            // Other
+            grid-template-rows: auto 1fr auto;
+
+            main {
+                @extend .first-child-can-have-no-top-margin;
+                // Text : Color, Font-Family, Font-Size, Alignment, Background
+                background-color: var(--main-background-color);
+                // Size : width, Height
+                // width   : 100%;
+                // height  : fit-content;
+                position: relative;
+                top: 0;
+                bottom: 0;
+                left: 0;
+                right: 0;
+                // Spacing : Margin, Padding
+                margin  : 0;
+                padding : calc( 2 * var(--default-top-margin) ) 0;
+                // Border : style, color, width, radius
+                border  : none;
+                // Rendering : Display, Position, 
+                display : block;
+                // Other
+            
+                & > * {
+                    // Text : Color, Font-Family, Font-Size, Alignment, Background
+                    // Size : width, Height
+                    width: var(--content-width);
+                    max-width: var(--max-content-width);
+                    // Spacing : Margin, Padding
+                    margin-left: auto;
+                    margin-right: auto;
+                    // Border : style, color, width, radius
+                    // Rendering : Display, Position, 
+                    // Other
+                }
+            
+                & > section, div { width: 100%; }
+            }
+        }
+    }
+}
+
+h1, h2, h3, h4, h5, h6 { @extend .title; }
+
+h1 {
+    font-size  : calc( var(--text-font-size)     * 2.00  ); 
+    margin-top : calc( var(--default-top-margin) + 12px );
+} h2 {
+    font-size  : calc( var(--text-font-size)     * 1.75 ); 
+    margin-top : calc( var(--default-top-margin) + 10px );
+} h3 {
+    font-size  : calc( var(--text-font-size)     * 1.50 ); 
+    margin-top : calc( var(--default-top-margin) + 8px  );
+} h4 {
+    font-size  : calc( var(--text-font-size)     * 1.25 ); 
+    margin-top : calc( var(--default-top-margin) + 6px  );
+} h5 {
+    font-size  : calc( var(--text-font-size)     * 1.00 ); 
+    margin-top : calc( var(--default-top-margin) + 4px  );
+} h6 {
+    font-size  : calc( var(--text-font-size)     * 0.75 ); 
+    margin-top : calc( var(--default-top-margin) + 2px  );
+}
+
+p { margin-top: var(--default-top-margin); }
+
+a { 
+
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    color: var(--accent-color);
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    // Border : style, color, width, radius
+    // Rendering : Display, Position, 
+    display: inline-block;
+    // Other
+    text-decoration: none;
+
+    &:hover { text-decoration: underline; }
+}
+
+i, span, b {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    // Size : width, Height
+    width: fit-content;
+    // Spacing : Margin, Padding
+    // Border : style, color, width, radius
+    // Rendering : Display, Position, 
+    display: inline-block;
+    // Other
+}
+
+i {
+    font-style: italic;
+}
+
+form {
+    
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    // Border : style, color, width, radius
+    // Rendering : Display, Position, 
+    // Other
+    
+    input { 
+        @extend .form-element; 
+        // Text : Color, Font-Family, Font-Size, Alignment, Background
+        // Size : width, Height
+        // Spacing : Margin, Padding
+        // Border : style, color, width, radius
+        // Rendering : Display, Position, 
+        // Other
+    }
+    button { 
+        @extend .form-element; 
+        // Text : Color, Font-Family, Font-Size, Alignment, Background
+        text-transform: capitalize;
+        // Size : width, Height
+        // Spacing : Margin, Padding
+        margin-top: calc( 2 * var(--default-top-margin) );
+        padding: calc( var(--default-top-margin) / 2 ) var(--default-top-margin);
+        // Border : style, color, width, radius
+        // Rendering : Display, Position, 
+        // Other
+    }
+}
+
+pre {
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    color: var(--title-color);
+    background-color: var(--layer-0-background-color);
+    // Size : width, Height
+    // Spacing : Margin, Padding
+    margin-top: var(--default-top-margin);
+    padding: calc( var(--default-top-margin) / 2);
+    // Border : style, color, width, radius
+    // Rendering : Display, Position, 
+    border-radius: var(--border-radius);
+    // Other
+
+    code {
+        color: inherit;
+    }
+}

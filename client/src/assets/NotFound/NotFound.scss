@@ -1,6 +1,49 @@
-.NotFound {
+.not-found-container {
+    
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    // Size : width, Height
+    width: 100%;
+    height: 100%;
+    // Spacing : Margin, Padding
+    // Border : style, color, width, radius
+    // Rendering : Display, Position, 
     display: flex;
+    // Other
     align-items: center;
     justify-content: center;
-    height: 100%;
+    
+    & > div.not-found-content {
+
+        // Text : Color, Font-Family, Font-Size, Alignment, Background
+        // Size : width, Height
+        // Spacing : Margin, Padding
+        // Border : style, color, width, radius
+        // Rendering : Display, Position, 
+        // Other
+        
+        & > * {
+
+            // Text : Color, Font-Family, Font-Size, Alignment, Background
+            // Size : width, Height
+            width: var(--content-width);
+            max-width: var(--max-content-width);
+            // Spacing : Margin, Padding
+            margin-left: auto;
+            margin-right: auto;
+            // Border : style, color, width, radius
+            // Rendering : Display, Position, 
+            // Other
+
+            & > * {
+                
+                // Text : Color, Font-Family, Font-Size, Alignment, Background
+                // Size : width, Height
+                width: fit-content;
+                // Spacing : Margin, Padding
+                // Border : style, color, width, radius
+                // Rendering : Display, Position, 
+                // Other
+            }
+        }
+    }
 }

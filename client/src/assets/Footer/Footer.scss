@@ -1,0 +1,162 @@
+footer{ 
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    background-color: var(--layer-0-background-color);
+    // Size : width, Height
+    width      : 100%;
+    height     : fit-content;
+    // Spacing : Margin, Padding
+    padding: calc( 2 * var(--default-top-margin) );
+    // Border : style, color, width, radius
+    // Rendering : Display, Position, 
+    // Other
+
+    div#footer-content {
+
+        // Text : Color, Font-Family, Font-Size, Alignment, Background
+        // Size : width, Height
+        // Spacing : Margin, Padding
+        // Border : style, color, width, radius
+        // Rendering : Display, Position, 
+        // Other
+
+        div#footer-img-container {
+
+            // Text : Color, Font-Family, Font-Size, Alignment, Background
+            // Size : width, Height
+            // Spacing : Margin, Padding
+            // Border : style, color, width, radius
+            // Rendering : Display, Position, 
+            // Other
+
+            img#footer-img {
+                // Text : Color, Font-Family, Font-Size, Alignment, Background
+                // Size : width, Height
+                // Spacing : Margin, Padding
+                // Border : style, color, width, radius
+                // Rendering : Display, Position, 
+                display: none;
+                // Other
+            }
+        }
+
+        ul#footer-links {
+            // Text : Color, Font-Family, Font-Size, Alignment, Background
+            // Size : width, Height
+            // Spacing : Margin, Padding
+            margin-top: var(--default-top-margin);
+            // Border : style, color, width, radius
+            // Rendering : Display, Position, 
+            // Other
+
+            li.footer-link {
+                // Text : Color, Font-Family, Font-Size, Alignment, Background
+                // Size : width, Height
+                // Spacing : Margin, Padding
+                padding: calc( var(--default-top-margin) / 4 ) 0;
+                // Border : style, color, width, radius
+                // Rendering : Display, Position, 
+                // Other
+            }
+        }
+    }
+}
+
+@media screen and (min-width: 600px) {
+    footer {
+
+        // Text : Color, Font-Family, Font-Size, Alignment, Background
+        // Size : width, Height
+        // Spacing : Margin, Padding
+        // Border : style, color, width, radius
+        // Rendering : Display, Position, 
+        // Other
+
+        div#footer-content {
+
+            // Text : Color, Font-Family, Font-Size, Alignment, Background
+            // Size : width, Height
+            max-width: var(--max-content-width);
+            // Spacing : Margin, Padding
+            margin-right: auto;
+            margin-left: auto;
+            // Border : style, color, width, radius
+            // Rendering : Display, Position, 
+            display: grid;
+            // Other
+            grid-template-columns: auto auto auto;
+            column-gap: var(--default-top-margin);
+
+            div#footer-img-container {
+
+                // Text : Color, Font-Family, Font-Size, Alignment, Background
+                // Size : width, Height
+                height: 100%;
+                width: 100%;
+                // Spacing : Margin, Padding
+                // Border : style, color, width, radius
+                // Rendering : Display, Position, 
+                display: block;
+                // Other
+                
+                img#footer-img {
+                    // Text : Color, Font-Family, Font-Size, Alignment, Background
+                    // Size : width, Height
+                    min-width: none;
+                    width: 100%;
+                    max-width: 7em;
+                    min-height: none;
+                    height: auto;
+                    // Spacing : Margin, Padding
+                    margin-right: auto;
+                    margin-left: auto;
+                    // Border : style, color, width, radius
+                    // Rendering : Display, Position, 
+                    display: block;
+                    // Other
+                }
+            }
+            
+            div#footer-text {
+                // Text : Color, Font-Family, Font-Size, Alignment, Background
+                // Size : width, Height
+                width: 100%;
+                margin-right: auto;
+                margin-left: auto;
+                // Spacing : Margin, Padding
+                // Border : style, color, width, radius
+                // Rendering : Display, Position, 
+                // Other
+            }
+    
+            ul#footer-links {
+                // Text : Color, Font-Family, Font-Size, Alignment, Background
+                // Size : width, Height
+                width: 100%;
+                height: 100%;
+                // Spacing : Margin, Padding
+                margin-top: 0;
+                margin-right: auto;
+                margin-left: auto;
+                // Border : style, color, width, radius
+                // Rendering : Display, Position, 
+                // Other
+
+                li.footer-link {
+                    // Text : Color, Font-Family, Font-Size, Alignment, Background
+                    text-align: left;
+                    // Size : width, Height
+                    width: 100%;
+                    // Spacing : Margin, Padding
+                    padding: calc( var(--default-top-margin) / 4 ) 0;
+                    margin-right: auto;
+                    margin-left: auto;
+                    // Border : style, color, width, radius
+                    // Rendering : Display, Position, 
+                    display: block;
+                    // Other
+                }
+            }
+        }
+    }
+}
+       
