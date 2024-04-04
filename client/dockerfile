@@ -1,11 +1,24 @@
 # Run the following command:
 #   docker build . -t "sth123/gamedesign3frontend:v${VERSION_GOES_HERE}"
 
+# FROM node:current-alpine
+# WORKDIR /app
+# COPY package.json .
+# COPY package-lock.json .
+# RUN npm ci
+# # RUN apt-get update 
+# # RUN apt-get install -y net-tools lsof
+# COPY . .
+# EXPOSE 4173
+# CMD ["npm", "run", "dev" ]
+
 FROM arm64v8/node:latest AS build
 WORKDIR /app
 COPY package.json .
 RUN npm install
+RUN apt-get update 
+RUN apt-get install -y net-tools lsof
 COPY . .
 RUN npm run build
 EXPOSE 4173
-CMD [ "npm", "run", "preview" ]
+ENTRYPOINT [ "npm", "run", "preview" ]

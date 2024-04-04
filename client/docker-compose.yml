@@ -1,19 +1,27 @@
 version: "3.8"
 
+# Use the following command:
+#
+#   docker compose up -d --build 
+#
+# to start the container.
+
 services:
-  vite_docker:
+  frontend:
     container_name: gamedesign3.school.tygo.van.den.hurk.dev-vite
-    image: sth123/gamedesign3frontend:v0.8.0
+    build: 
+      dockerfile: Dockerfile
+    # image: .
     restart: always
-    entrypoint: /bin/sh
+    # entrypoint: /bin/sh
     networks:
       - 'proxymesh'
       - 'default'
     ports:
       - 4173:4173
-    working_dir: /srv/app
     volumes:
       - ./:/srv/app
+    working_dir: /srv/app
     tty: true
 
 networks:
