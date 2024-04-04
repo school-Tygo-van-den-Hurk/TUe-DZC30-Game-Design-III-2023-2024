@@ -10,7 +10,7 @@ export const domain = (_domain);
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
 var _domain;
-if (isDevEnv) _domain = ("localhost"); else _domain = ("gamedesign3backend");
+if (isDevEnv) _domain = ("localhost"); else _domain = ("gamedesign3backend.school.tygo.van.den.hurk.dev");
 /** Wether or not the protocol uses HTTPS. */
 export const https = (_https);
 
