@@ -1,19 +1,27 @@
 version: "3.8"
 
 services:
-  vite_docker:
+  gamedesign3_school_tygo_van_den_hurk_dev:
     container_name: gamedesign3.school.tygo.van.den.hurk.dev-vite
-    image: sth123/gamedesign3frontend:v0.8.0
+    build: 
+      dockerfile: Dockerfile
+    # image: .
     restart: always
-    entrypoint: /bin/sh
+    # entrypoint: /bin/sh
     networks:
       - 'proxymesh'
       - 'default'
     ports:
       - 4173:4173
-    working_dir: /srv/app
     volumes:
       - ./:/srv/app
+    working_dir: /srv/app
+    # This does not seem to be working:
+    # deploy:
+    #   platform:
+    #     architecture: arm64
+    #     os: linux
+    #     variant: v8
     tty: true
 
 networks:

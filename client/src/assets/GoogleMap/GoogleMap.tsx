@@ -1,6 +1,6 @@
 import { Circle } from '@react-google-maps/api';
 import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
-import { HTMLAttributes, useState, useEffect } from 'react';
+import { HTMLAttributes } from 'react';
 
 export interface GoogleMapProps extends HTMLAttributes<HTMLDivElement> {
     apiKey:string,

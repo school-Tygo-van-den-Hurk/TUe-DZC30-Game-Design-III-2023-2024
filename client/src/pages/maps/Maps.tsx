@@ -138,7 +138,7 @@ function success(data:BackendCoordinateRequestResult) {
         <>
             <p className="success"> The coordinates loaded successfully. </p>
             <p> 
-                The coordinates are latitude: {data.coordinates.lat}, and longitude: {data.coordinates.lon}. 
+                The coordinates are latitude: {data.coordinates.lat}, and longitude: {data.coordinates.lng}. 
                 this will be removed when we launch the website.
             </p>
         </>

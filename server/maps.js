@@ -1,7 +1,6 @@
 "use strict"; //~ @Eryk Go ahead and modify this file to your hearts content.
 
 import print from "./Printer.js";
-import Puzzle from "./puzzle.js";
 
 /**
  * Get's and returns the location from the GPS module.
@@ -13,7 +12,9 @@ export default function getLocation() {
 
     // print("Some print statement."); // use this print function for non debugging, use console.log for debugging.
     return ({
-        coordinates: { lat:51.44904336679616, lng:5.487273789974496 },
-        // lastSolved: {new Date(Puzzle.Date).toISOString()}
+        coordinates: { 
+            lat: 51.44904336679616, 
+            lng: 5.487273789974496 
+        },
     });
 }
