@@ -1,7 +1,7 @@
 // import { Circle } from '@react-google-maps/api';
 // import { GoogleMap } from '@react-google-maps/api';
 // import { Marker } from '@react-google-maps/api';
-import { APIProvider, Map, Marker } from '@vis.gl/react-google-maps';
+import { APIProvider, Map } from '@vis.gl/react-google-maps';
 import { Circle } from '../../components';
 import { HTMLAttributes } from 'react';
 
@@ -38,14 +38,6 @@ function CustomGoogleMap(props: GoogleMapProps) {
 
     if (!props.map) props.map = { position: { lat: 51.448555556, lng: 5.489083333 } };
 
-    var marker = (<></>);
-    if (props.marker) marker = (<Marker
-        position={props.marker.position}
-        clickable={false}
-        draggable={false}
-    />
-    );
-
     var circle = (<></>);
     //props.circle.radius
     if (props.circle) circle = (<Circle
@@ -67,8 +59,7 @@ function CustomGoogleMap(props: GoogleMapProps) {
                 center={props.map.position}
                 zoom={17}
                 style={{ ...props.style, borderRadius: "var(--border-radius)" }}
-            >
-                {/* {marker} */}
+            /* Map */>
                 {circle}
             </Map>
         </APIProvider>
