@@ -1,7 +1,13 @@
 version: "3.8"
 
+# Use the following command:
+#
+#   docker compose up -d --build 
+#
+# to start the container.
+
 services:
-  gamedesign3_school_tygo_van_den_hurk_dev:
+  frontend:
     container_name: gamedesign3.school.tygo.van.den.hurk.dev-vite
     build: 
       dockerfile: Dockerfile
@@ -16,12 +22,6 @@ services:
     volumes:
       - ./:/srv/app
     working_dir: /srv/app
-    # This does not seem to be working:
-    # deploy:
-    #   platform:
-    #     architecture: arm64
-    #     os: linux
-    #     variant: v8
     tty: true
 
 networks:
