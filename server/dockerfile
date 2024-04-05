@@ -1,7 +1,18 @@
 FROM node:21
 WORKDIR /usr/src/app
-COPY package*.json ./
-RUN npm install
+
+# installing the network tools for debugging
+RUN apt-get update 
+RUN apt-get install -y net-tools lsof
+
+# Getting all the files in the container
 COPY . .
+
+# installing the dependencies and building the app
+RUN npm install
+
+# opening the port
 EXPOSE 3001
-CMD ["node", "index.js"]
+
+# starting the app
+CMD ["node", "index.js"] 

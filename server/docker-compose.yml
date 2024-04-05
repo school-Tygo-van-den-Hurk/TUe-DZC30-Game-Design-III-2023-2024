@@ -1,0 +1,27 @@
+version: "3.8"
+
+# Use the following command:
+#
+#   docker compose up -d --build --remove-orphans
+#
+# to start the container.
+
+services:
+  backend:
+    container_name: gamedesign3backend.school.tygo.van.den.hurk.dev
+    build: 
+      dockerfile: Dockerfile
+    restart: always
+    networks:
+      - 'proxymesh'
+      - 'default'
+    ports:
+      - 3001:3001
+    volumes:
+      - ./:/srv/app
+    working_dir: /srv/app
+    tty: true
+
+networks:
+  proxymesh:
+    external: true
