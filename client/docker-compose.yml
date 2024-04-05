@@ -2,7 +2,7 @@ version: "3.8"
 
 # Use the following command:
 #
-#   docker compose up -d --build 
+#   docker compose up -d --build --remove-orphans
 #
 # to start the container.
 

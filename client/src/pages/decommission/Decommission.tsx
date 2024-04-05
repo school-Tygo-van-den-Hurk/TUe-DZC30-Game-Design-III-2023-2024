@@ -6,7 +6,7 @@ export default function Decommission() {
         <>
             <h1> Decommission </h1>
             <p>
-                This project got decommission as the course is over. 
+                This project got decommissioned as the course is over. 
                 We did not want to have a raspberry pi,
                 which batteries we'd have had to replace once a day,
                 and could get stolen, out there on campus.

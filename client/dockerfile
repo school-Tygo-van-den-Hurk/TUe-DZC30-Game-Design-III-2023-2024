@@ -1,24 +1,23 @@
-# Run the following command:
-#   docker build . -t "sth123/gamedesign3frontend:v${VERSION_GOES_HERE}"
-
-# FROM node:current-alpine
-# WORKDIR /app
-# COPY package.json .
-# COPY package-lock.json .
-# RUN npm ci
-# # RUN apt-get update 
-# # RUN apt-get install -y net-tools lsof
-# COPY . .
-# EXPOSE 4173
-# CMD ["npm", "run", "dev" ]
-
-FROM arm64v8/node:latest AS build
+FROM node:latest AS build
 WORKDIR /app
-COPY package.json .
-RUN npm install
+
+# installing the network tools for debugging
 RUN apt-get update 
 RUN apt-get install -y net-tools lsof
+
+# Getting all the files in the container
 COPY . .
+
+# making sure that the dist, and node_modules folders are not present
+RUN rm -rf dist/
+RUN rm -rf node_modules/
+
+# installing the dependencies and building the app
+RUN npm install
 RUN npm run build
+
+# opening the port
 EXPOSE 4173
-ENTRYPOINT [ "npm", "run", "preview" ]
+
+# starting the app
+CMD [ "npm", "run", "preview" ] 

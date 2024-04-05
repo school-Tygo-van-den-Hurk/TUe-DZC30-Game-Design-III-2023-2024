@@ -2,22 +2,22 @@ import { isDevEnv } from "./constants";
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
-var _https;
-if (isDevEnv) _https = (false); else _port = (true);
-/** The domain the server is on. */
-export const domain = (_domain);
-
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-var _domain;
-if (isDevEnv) _domain = ("localhost"); else _domain = ("gamedesign3backend.school.tygo.van.den.hurk.dev");
-/** Wether or not the protocol uses HTTPS. */
+var _https = (true);
+if (isDevEnv) _https = (false);
+/** The protocol the backend uses. */
 export const https = (_https);
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
 
-var _port;
-if (isDevEnv) _port = (3001); else _port = ( (_https) ? 443 : 80 );
+var _domain = ("gamedesign3backend.school.tygo.van.den.hurk.dev");
+if (isDevEnv) _domain = ("localhost");
+/** What domain the backend is one. */
+export const domain = (_domain);
+
+//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
+
+var _port = ( (_https) ? 443 : 80 );
+if (isDevEnv) _port = (3001);
 /** The port the server uses. */
 export const port = (_port);
 
