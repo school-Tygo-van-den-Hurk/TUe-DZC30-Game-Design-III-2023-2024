@@ -1,7 +1,11 @@
 import { NavLink as ReactRouterNavLink, useLocation } from 'react-router-dom';
-import { decommissioned } from '../constants';
+import { contactURL, decommissioned } from '../constants';
 import "./Header.css";
+import NotificationBanner, { NotificationBannerTypes } from '../NotificationBanner/NotificationBanner';
 
+/**
+ * used to add the "active" class to the link who's path we are at
+ */
 function NavLink(props: { to: string; children: React.ReactNode; }) {
     const { pathname } = useLocation();
     const isActive  = (pathname === props.to);
@@ -14,10 +18,31 @@ function NavLink(props: { to: string; children: React.ReactNode; }) {
     );
 }
 
-function Header() {
+/**
+ * The header to display when the application is decommissioned.
+ */
+function DecommissionedBanner() {
+    return (
+        (decommissioned) ? (
+            <NotificationBanner type={NotificationBannerTypes.error} dismissible={false}>
+                This application is decommissioned. The page is still up,
+                however it will no longer be able to connect to the backend. 
+                If you have any concerns, or want to know how this affects 
+                you, you can <a href={contactURL}>reach out</a>.
+            </NotificationBanner>
+        ) : (
+            <></>
+        )
+    );
+}
+
+/**
+ * The default header.
+ */
+export default function Header() {
     return (
         <header>
-            {warn()}
+            <DecommissionedBanner/>
             <div className="navbar-container">
                 <nav id="navbar">
                     <ul id="navbar-links">
@@ -46,23 +71,3 @@ function Header() {
         </header>
     );
 }
-
-function warn() {
-    const noContent = (<></>); // explanation for a constant
-
-    if (decommissioned) return (
-        <div id="notification">
-            <p style={{
-                border:"solid red 1px", color:"red", width:"100%", backgroundColor:"coral", padding:"1em", marginBottom:"1em"
-            }}>
-                <b style={{color:"inherit"}}>Warning</b>:<i style={{color:"inherit"}}> this game is decommissioned. 
-                as the course it was made for ended. The website is still up, however, the game can no longer be 
-                played without the treasure.</i>
-            </p>
-        </div>
-    );
-
-    else return (noContent);
-}
-
-export default Header;

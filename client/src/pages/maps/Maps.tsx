@@ -4,6 +4,7 @@ import axios from 'axios';
 import useSWR from 'swr';
 import "./Maps.css"; 
 import { isDevEnv } from "../../assets/constants";
+import NotificationBanner, { NotificationBannerTypes } from "../../assets/NotificationBanner/NotificationBanner";
 
 // TODO REMOVE WHEN AN ACTUAL IMPLEMENTATION IS HERE
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -104,21 +105,20 @@ function Maps() {
 
     if (error) return (
         <>
-            {failed(error)}
             {getTextAndTitle()}
+            {failed(error)}
         </>
     );
 
     if (isValidating) return (
         <>
-            {loading()}
             {getTextAndTitle()}
+            {loading()}
         </>
     );
 
     return (
         <>
-            {success(data)}
             {getTextAndTitle()}
             {getMap(data)}
         </>
@@ -132,10 +132,8 @@ function Maps() {
  * @returns the HTML on a successful load.
  */
 function success(data:BackendCoordinateRequestResult) {
-
     const message = ( 
-        (isDevEnv)
-        ? (
+        (isDevEnv) ? (
             <p> 
                 The coordinates are latitude: {data.coordinates.lat}, and longitude: {data.coordinates.lng}. 
                 this is only visible in development mode.
@@ -143,7 +141,9 @@ function success(data:BackendCoordinateRequestResult) {
         ) : (<></>) );
     return (
         <>
-            <p className="success"> The coordinates loaded successfully. </p>
+            {/* <NotificationBanner type={NotificationBannerTypes.warning}>
+                The coordinates loaded successfully. 
+            </NotificationBanner> */}
             {message}
         </>
     );
@@ -157,9 +157,9 @@ function success(data:BackendCoordinateRequestResult) {
 function loading() {
 
     return (
-        <p className="loading">
-            Loading the coordinates...
-        </p>
+        <NotificationBanner type={NotificationBannerTypes.warning} dismissible={false}>
+            Loading the coordinates... 
+        </NotificationBanner>
     );
 }
 
@@ -174,9 +174,9 @@ function failed(error?: any) {
     console.error(error);
 
     return (
-        <p className="failed">
+        <NotificationBanner type={NotificationBannerTypes.error} dismissible={false} autoDismissAfter={3000}>
             failed to load the coordinates.
-        </p>
+        </NotificationBanner>
     );
 }
 

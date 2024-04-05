@@ -3,6 +3,7 @@ import { contactURL } from "../../assets/constants";
 import "./puzzle.css";
 import axios from "axios";
 import server from "../../assets/server";
+import NotificationBanner, { NotificationBannerTypes } from "../../assets/NotificationBanner/NotificationBanner";
 // import JsxParser from "react-jsx-parser";
 
 /**
@@ -34,6 +35,7 @@ function getTextAndTitle() {
  */
 function Puzzle() {
 
+    const notificationDismissTime = (3000);
     const url:string = (`${server.getURL()}puzzle`);
     const fetcher:(url:string)=>Promise<any> = (url:string) => axios.get(url).then(res => res.data);
     const { data, error, isValidating } = useSWR(url, fetcher);
@@ -41,17 +43,22 @@ function Puzzle() {
     if (error) { console.error(error);
         return (
         <>
-            <div className="failed"> An error occurred loading the puzzle. </div>
             {getTextAndTitle()}
             <pre><code> Puzzle could not be loaded </code></pre>
+            {/* <NotificationBanner type={NotificationBannerTypes.error} 
+            dismissible={false} autoDismissAfter={notificationDismissTime}> 
+                An error occurred loading the puzzle. 
+            </NotificationBanner> */}
         </>
     )};
     
     if (isValidating) return (
         <>
-            <div className="loading"> Loading the Puzzle... </div>
             {getTextAndTitle()}
             <pre><code> Loading... </code></pre>
+            {/* <NotificationBanner type={NotificationBannerTypes.loading} dismissible={false}> 
+                Loading the Puzzle...
+            </NotificationBanner> */}
         </>
     );
 
@@ -65,17 +72,25 @@ function Puzzle() {
         : (<></>)
     );
 
-    const puzzleStatusText = (
-        (data.puzzle)
-        ? (<div className="success"> The puzzle loaded successfully. </div>)
-        : (<div className="failed"> The puzzle is not defined. </div>)
-    );
+    //// const puzzleStatusText = (
+    ////     (data.puzzle) ? (
+    ////         <NotificationBanner type={NotificationBannerTypes.success} 
+    ////         dismissible={false} autoDismissAfter={notificationDismissTime}> 
+    ////             The puzzle loaded successfully. 
+    ////         </NotificationBanner>
+    ////     ) : (
+    ////         <NotificationBanner type={NotificationBannerTypes.error}
+    ////         dismissible={false} autoDismissAfter={notificationDismissTime}> 
+    ////             The puzzle is not defined.
+    ////         </NotificationBanner>
+    ////     )
+    //// );
     
     return (
         <>
-            {puzzleStatusText}
             {getTextAndTitle()}
             <pre><code>{(data.puzzle)?(data.puzzle):"not defined"}</code></pre>
+            {/* {puzzleStatusText} */}
             {puzzleSolvedText}
 
             <h2>Update Puzzle</h2>

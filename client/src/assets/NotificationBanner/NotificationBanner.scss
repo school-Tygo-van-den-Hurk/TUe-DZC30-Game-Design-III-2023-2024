@@ -1,0 +1,82 @@
+div.notification-banner-container {
+                
+    // Text : Color, Font-Family, Font-Size, Alignment, Background
+    // Size : width, Height
+    height: fit-content;
+    width   : 100%;
+    // Spacing : Margin, Padding
+    padding: var(--default-top-margin);
+    // Border : style, color, width, radius
+    // Rendering : Display, Position, 
+    // Other
+
+    div.notification-banner {
+        // Text : Color, Font-Family, Font-Size, Alignment, Background
+        // Size : width, Height
+        height: fit-content;
+        width   : 100%;
+        // Spacing : Margin, Padding
+        padding : var(--default-top-margin);
+        // Border : style, color, width, radius
+        border-style  : solid;
+        border-width  : var( --border-width  );
+        border-radius : var( --border-radius );
+        // Rendering : Display, Position, 
+        display: grid !important;
+        // Other
+        grid-template-columns: 3em auto 3em;
+        column-gap : var(--default-top-margin);
+
+        p.notification-banner-text {
+            // Text : Color, Font-Family, Font-Size, Alignment, Background
+            color: inherit;
+            // Size : width, Height
+            height: fit-content;
+            // Spacing : Margin, Padding
+            margin: 0;
+            padding: 0;
+            // Border : style, color, width, radius
+            border-radius : var( --border-radius );
+            // Rendering : Display, Position, 
+            // Other
+            align-self: center;
+        }
+
+        svg.notification-banner-cross {
+            
+            // Text : Color, Font-Family, Font-Size, Alignment, Background
+            color: inherit;
+            fill: currentColor;
+            // Size : width, Height
+            // Spacing : Margin, Padding
+            margin: calc( var(--default-top-margin) / 2 );
+            // Border : style, color, width, radius
+            border-radius : var( --border-radius );
+            // Rendering : Display, Position, 
+            // Other
+            aspect-ratio: 1/1;
+
+            polygon.notification-banner-cross-component {
+            
+                // Text : Color, Font-Family, Font-Size, Alignment, Background
+                color: inherit;
+                fill: currentColor;
+                // Size : width, Height
+                // Spacing : Margin, Padding
+                // Border : style, color, width, radius
+                // Rendering : Display, Position, 
+                // Other
+
+            }
+        }
+    }
+}
+
+*.fading-out {
+    animation: fading-out-animation .25s forwards; 
+}
+
+@keyframes fading-out-animation {
+    0%   { opacity: 1; } 
+    100% { opacity: 0; display: none; } 
+}

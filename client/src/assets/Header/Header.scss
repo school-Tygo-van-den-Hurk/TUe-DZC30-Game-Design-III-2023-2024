@@ -13,6 +13,16 @@ header{
     // Rendering : Display, Position, 
     // Other
     
+    *.notification-banner-container {
+        // Text : Color, Font-Family, Font-Size, Alignment, Background
+        // Size : width, Height
+        // Spacing : Margin, Padding
+        margin-bottom: var(--default-top-margin);
+        // Border : style, color, width, radius
+        // Rendering : Display, Position, 
+        // Other
+    }
+
     nav#navbar {
     
         // Text : Color, Font-Family, Font-Size, Alignment, Background
