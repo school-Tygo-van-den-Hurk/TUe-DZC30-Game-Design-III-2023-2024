@@ -8,9 +8,9 @@ RUN apt-get install -y net-tools lsof
 # Getting all the files in the container
 COPY . .
 
-# making sure that the dist, and node_modules folders are not present
-RUN rm -rf dist/
-RUN rm -rf node_modules/
+# # making sure that the dist, and node_modules folders are not present
+# RUN rm -rf dist/
+# RUN rm -rf node_modules/
 
 # installing the dependencies and building the app
 RUN npm install
@@ -20,4 +20,4 @@ RUN npm run build
 EXPOSE 4173
 
 # starting the app
-CMD [ "npm", "run", "preview" ] 
+CMD [ "npm", "run", "dev" ] 
