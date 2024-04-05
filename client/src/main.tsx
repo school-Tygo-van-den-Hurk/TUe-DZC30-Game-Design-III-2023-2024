@@ -10,26 +10,32 @@ import Home from './pages/home/Home';
 import Lore from './pages/lore/Lore';
 import React from 'react';
 import './main.css';
+import Decommission from './pages/decommission/Decommission';
 
 /** redirects to `/home` page when rendered. */
 function RedirectToHome() { return ( <Navigate to="/home" replace /> )}
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
-    <React.StrictMode>
-        <BrowserRouter>
-            <Header/>
-            <main>
-                <Routes>
-                    <Route path="/"       element={ <RedirectToHome/> }/>
-                    <Route path="/home"   element={ <Home/>           }/>
-                    <Route path="/maps"   element={ <Maps/>           }/>
-                    <Route path="/puzzle" element={ <Puzzle/>         }/>
-                    <Route path="/lore"   element={ <Lore/>           }/>
-                    <Route path="/about"  element={ <About/>          }/>
-                    <Route path="*"       element={ <NotFound/>       }/>
-                </Routes> 
-            </main>
-            <Footer/>
-        </BrowserRouter>
-    </React.StrictMode>
-);
+export default function Page() {
+    return (
+        <React.StrictMode>
+            <BrowserRouter>
+                <Header/>
+                <main>
+                    <Routes>
+                        <Route path="/"              element={ <RedirectToHome/> }/>
+                        <Route path="/home"          element={ <Home/>           }/>
+                        <Route path="/maps"          element={ <Maps/>           }/>
+                        <Route path="/puzzle"        element={ <Puzzle/>         }/>
+                        <Route path="/lore"          element={ <Lore/>           }/>
+                        <Route path="/about"         element={ <About/>          }/>
+                        <Route path="/decommission"  element={ <Decommission/>   }/>
+                        <Route path="*"              element={ <NotFound/>       }/>
+                    </Routes> 
+                </main>
+                <Footer/>
+            </BrowserRouter>
+        </React.StrictMode>
+    );
+}
+
+ReactDOM.createRoot(document.getElementById('root')!).render(Page());

@@ -18,17 +18,20 @@ function Footer() {
                     <img id="footer-img" src="/icon.responsive.svg" alt="A skull with swords"/>
                 </div>
                 <div id="footer-text">
-                    <p id="copyright-notice">
-                        Copyright &copy; {copyRightYear} &middot; Group 4 for Game Design III, 
-                        a course from TU/e &middot; all rights reserved.
-                    </p>
                     <p>
-                        made with &lt;3
+                        Made with lots of love 
+                        by <b> Group 4 </b> for <b>Game Design III {`${launchYear-1}-${launchYear}`}</b>.
+                    </p>
+                    <p id="copyright-notice">
+                        Copyright &copy; {copyRightYear} &middot; <b> Group 4 </b> for <b> Game
+                        Design III {`${launchYear-1}-${launchYear}`}</b>, a course from <b> TU/e </b> &middot; all
+                        rights reserved.
                     </p>
                 </div>
                 <ul id="footer-links">
                     <li className="footer-link"><a href={repositoryURL}>GitHub</a></li>
                     <li className="footer-link"><a href={contactURL}>Contact</a></li>
+                    <li className="footer-link"><a href="https://www.tue.nl/en/">TU/e</a></li>
                 </ul>
             </div>
         </footer>

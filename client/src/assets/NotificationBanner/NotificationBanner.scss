@@ -22,7 +22,7 @@ div.notification-banner-container {
         border-width  : var( --border-width  );
         border-radius : var( --border-radius );
         // Rendering : Display, Position, 
-        display: grid !important;
+        display: grid;
         // Other
         grid-template-columns: 3em auto 3em;
         column-gap : var(--default-top-margin);

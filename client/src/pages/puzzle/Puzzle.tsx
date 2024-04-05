@@ -3,8 +3,8 @@ import { contactURL } from "../../assets/constants";
 import "./puzzle.css";
 import axios from "axios";
 import server from "../../assets/server";
-import NotificationBanner, { NotificationBannerTypes } from "../../assets/NotificationBanner/NotificationBanner";
-// import JsxParser from "react-jsx-parser";
+//// import NotificationBanner, { NotificationBannerTypes } from "../../assets/NotificationBanner/NotificationBanner";
+//// import JsxParser from "react-jsx-parser";
 
 /**
  * The basic text to display when visiting this page.
@@ -35,7 +35,7 @@ function getTextAndTitle() {
  */
 function Puzzle() {
 
-    const notificationDismissTime = (3000);
+    //// const notificationDismissTime = (3000);
     const url:string = (`${server.getURL()}puzzle`);
     const fetcher:(url:string)=>Promise<any> = (url:string) => axios.get(url).then(res => res.data);
     const { data, error, isValidating } = useSWR(url, fetcher);

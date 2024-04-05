@@ -4,7 +4,7 @@ import axios from 'axios';
 import useSWR from 'swr';
 import "./Maps.css"; 
 import { isDevEnv } from "../../assets/constants";
-import NotificationBanner, { NotificationBannerTypes } from "../../assets/NotificationBanner/NotificationBanner";
+//// import NotificationBanner, { NotificationBannerTypes } from "../../assets/NotificationBanner/NotificationBanner";
 
 // TODO REMOVE WHEN AN ACTUAL IMPLEMENTATION IS HERE
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
@@ -27,7 +27,7 @@ function getTempProps(_data: BackendCoordinateRequestResult) {
     }
 
     const props: GoogleMapProps = {
-        apiKey: import.meta.env.GOOGLE_MAPS_API_KEY,
+        apiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
         map: {
             position: {
                 lat: 51.448555556, //// data.coordinates.lat, 
@@ -99,6 +99,8 @@ function getTextAndTitle() {
  */
 function Maps() {
 
+    console.debug("GOOGLE_MAPS_API_KEY", import.meta.env.VITE_GOOGLE_MAPS_API_KEY)
+
     const url: string = (`${server.getURL()}${path}`);
     const fetcher: (url: string) => Promise<any> = (url: string) => axios.get(url).then(res => res.data);
     const { data, error, isValidating } = useSWR(url, fetcher);
@@ -121,6 +123,7 @@ function Maps() {
         <>
             {getTextAndTitle()}
             {getMap(data)}
+            {success(data)}
         </>
     );
 }
@@ -141,9 +144,6 @@ function success(data:BackendCoordinateRequestResult) {
         ) : (<></>) );
     return (
         <>
-            {/* <NotificationBanner type={NotificationBannerTypes.warning}>
-                The coordinates loaded successfully. 
-            </NotificationBanner> */}
             {message}
         </>
     );
@@ -157,9 +157,12 @@ function success(data:BackendCoordinateRequestResult) {
 function loading() {
 
     return (
-        <NotificationBanner type={NotificationBannerTypes.warning} dismissible={false}>
-            Loading the coordinates... 
-        </NotificationBanner>
+        <div className="map-container">
+            <div className="map-message">
+                Loading map...
+            </div>
+            <div className="loading-map"/>
+        </div>
     );
 }
 
@@ -174,9 +177,11 @@ function failed(error?: any) {
     console.error(error);
 
     return (
-        <NotificationBanner type={NotificationBannerTypes.error} dismissible={false} autoDismissAfter={3000}>
-            failed to load the coordinates.
-        </NotificationBanner>
+        <div className="map-container">
+            <div className="map-message">
+                Failed to load :&#40;
+            </div>
+        </div>
     );
 }
 
