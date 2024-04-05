@@ -26,7 +26,7 @@ function getTempProps(_data: BackendCoordinateRequestResult) {
     }
 
     const props: GoogleMapProps = {
-        apiKey: "AIzaSyCJET1X_nGd5nsC1RLv1YTUWFg9HPkAjxQ",
+        apiKey: import.meta.env.GOOGLE_MAPS_API_KEY,
         map: {
             position: {
                 lat: 51.448555556, //// data.coordinates.lat, 
