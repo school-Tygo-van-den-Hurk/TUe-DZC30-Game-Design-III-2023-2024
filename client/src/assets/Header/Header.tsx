@@ -29,7 +29,7 @@ function DecommissionedBanner() {
                 however it will no longer be able to connect to the backend. 
                 If you have any concerns, or want to know how this affects 
                 you, you can <a href={contactURL}>reach out</a>. You can
-                learn more <a href="/decommission">here</a>.
+                learn more <NavLink="/decommission">here</NavLink>.
             </NotificationBanner>
         ) : (
             <></>
