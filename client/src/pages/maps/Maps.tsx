@@ -6,43 +6,7 @@ import "./Maps.css";
 import { isDevEnv } from "../../assets/constants";
 //// import NotificationBanner, { NotificationBannerTypes } from "../../assets/NotificationBanner/NotificationBanner";
 
-// TODO REMOVE WHEN AN ACTUAL IMPLEMENTATION IS HERE
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-// # BEGIN TODO : remove when you have an actual implementation
-function getTempProps(_data: BackendCoordinateRequestResult) {
-
-    const marker = ({
-        color: "#FFD700",
-        position: { lat: 51.44904336679616, lng: 5.487273789974496 }
-    });
-
-    const circle = {
-        strokeColor: "#FFD700",
-        strokeOpacity: 0.8,
-        strokeWeight: 2,
-        fillColor: "#FFD700",
-        fillOpacity: 0.35,
-        center: { lat: 51.44904336679616, lng: 5.487273789974496 },
-        radius: 20
-    }
-
-    const props: GoogleMapProps = {
-        apiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
-        map: {
-            position: {
-                lat: 51.448555556, //// data.coordinates.lat, 
-                lng: 5.489083333   ////data.coordinates.lon
-            }
-        },
-        marker: marker,
-        circle: circle
-    }
-
-    return (props);
-}
-// # END TODO
-//~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
+const GOOGLE_MAPS_API_KEY = (import.meta.env.VITE_GOOGLE_MAPS_API_KEY);
 const path = "maps";
 
 interface BackendCoordinateRequestResult {
@@ -58,9 +22,30 @@ interface BackendCoordinateRequestResult {
  * @returns 
  */
 function getMap(data: BackendCoordinateRequestResult) {
+
+    const props: GoogleMapProps = {
+        apiKey: GOOGLE_MAPS_API_KEY,
+        map: {
+            position: {
+                lat: 51.448555556, 
+                lng: 5.489083333
+            }
+        },
+        circle: {
+            strokeColor: "#FFD700",
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: "#FFD700",
+            fillOpacity: 0.35,
+            center: { 
+                lat: data.coordinates.lat, 
+                lng: data.coordinates.lng
+            },
+            radius: 20
+        }
+    };
+
     return (
-        // TODO : @Leo use the google maps API to create a map here.
-        // Search for terms 'node js', 'google maps API', and 'react' for better results.
         <div className="map-container layer-0" >
             <CustomGoogleMap {...getTempProps(data)} />
         </div >
@@ -97,9 +82,9 @@ function getTextAndTitle() {
  * 
  * @returns the maps page.
  */
-function Maps() {
+export default function Maps() {
 
-    console.debug("GOOGLE_MAPS_API_KEY", import.meta.env.VITE_GOOGLE_MAPS_API_KEY)
+    console.debug("GOOGLE_MAPS_API_KEY", GOOGLE_MAPS_API_KEY);
 
     const url: string = (`${server.getURL()}${path}`);
     const fetcher: (url: string) => Promise<any> = (url: string) => axios.get(url).then(res => res.data);
@@ -186,5 +171,3 @@ function failed(error?: any) {
 }
 
 //~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~//
-
-export default Maps;
