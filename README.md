@@ -1,4 +1,4 @@
-> This application is for Design for Games &amp; Play III, a course for the [TU/e](https://www.tue.nl/en/). The project is still visible at [gamedesign3.school.tygo.van.den.hurk.dev](https://gamedesign3.school.tygo.van.den.hurk.dev/home) in a decommissioned state.
+> This application is for Design for Games &amp; Play III, a course for the [TU/e](https://www.tue.nl/en/). 
 
 <br>
 <center>
@@ -12,7 +12,7 @@
         <img src="https://img.shields.io/github/issues/school-Tygo-van-den-Hurk/TUe-DZC20-Game-Design-III-2023-2024/good%20first%20issue" alt="Good first issues" />
     </a>
     <a href="https://github.com/school-Tygo-van-den-Hurk/TUe-DZC20-Game-Design-III-2023-2024/blob/main/LICENSE">
-        <img src="https://img.shields.io/badge/License-Eclipse%20Public%20License%20v2.0-green.svg" alt="The Eclipse Public License v2.0 badge" />
+        <img src="https://img.shields.io/badge/License-MIT-green.svg" alt="The MIT License badge" />
     </a>
     <a href="https://github.com/school-Tygo-van-den-Hurk/TUe-DZC20-Game-Design-III-2023-2024/commit">
         <img src="https://badgen.net/github/commits/school-Tygo-van-den-Hurk/TUe-DZC20-Game-Design-III-2023-2024" alt="GitHub commits" />
@@ -26,13 +26,14 @@
 </center>
 <br>
 
+
+# Game Design III
+"Design for Games &amp; Play III" addresses the many ways in which play connects with daily life, with special attention to creating fun and meaningful experiences in real-life contexts. It touches upon how to analyze and use the dynamics of play to produce impactful experiences.
+
 > [!NOTE]  
 > Since the project is over, we took the raspberry pi back for other projects. Therefore the project has no backend and is considered "decommissioned". That would leave the app broken, but also consume resources thus the app is completely shut down. You can still clone the repository, and start it up yourself.
 
-# TUe-DZC20-Game-Design-III-2023-2024
-"Design for Games &amp; Play III" addresses the many ways in which play connects with daily life, with special attention to creating fun and meaningful experiences in real-life contexts. It touches upon how to analyze and use the dynamics of play to produce impactful experiences.
-
-## The idea
+## The Idea
 Our idea is to have a treasure box somewhere on campus. Then a player will have to solve a puzzle to find the treasure. When the player finds the treasure, they'll get the option to trade the item that is in the box for another they bring themselves.
 
 ## The Application
